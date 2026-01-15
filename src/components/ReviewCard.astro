@@ -1,0 +1,29 @@
+---
+// ReviewCard.astro
+interface Props {
+  author: string;
+  text: string;
+  rating: number;
+  photo: string;
+}
+
+const { author, text, rating, photo } = Astro.props;
+---
+
+<div class="reveal-card opacity-0 bg-white backdrop-blur-md border border-[#FFB1A1] p-6 rounded-2xl flex flex-col gap-4 h-full">
+  <div class="flex items-center gap-4">
+    <img src={photo} alt={author} class="w-12 h-12 rounded-full object-cover border border-[#FFB1A1]" />
+    <div>
+      <h4 class="text-white font-bold text-sm uppercase tracking-wider">{author}</h4>
+      <div class="flex text-yellow-500 text-xs">
+        {Array.from({ length: 5 }).map((_, i) => (
+          <span class={i < rating ? "opacity-100" : "opacity-30"}>★</span>
+        ))}
+      </div>
+    </div>
+  </div>
+  
+  <p class="text-zinc-400 text-sm italic leading-relaxed">
+    "{text}"
+  </p>
+</div>
