@@ -1,0 +1,315 @@
+---
+// index.astro - Design Rosa Pink
+
+/** * 1. IMPORTES 
+ * Seguindo princípios de modularidade
+ */
+import ReviewCard from '../components/ReviewCard.astro';
+import WhatsAppButton from '../components/WhatsAppButton.astro'; 
+
+/** * 2. DADOS (MOCK) 
+ * Camada de dados (Model) separada da visualização
+ */
+const mockReviews = [
+  { 
+    author: "Mirian Meri Mecorssi", 
+    text: "Não e só mais um salão de beleza e sim um lugar de gente feliz que cuida de vc 🥰", 
+    rating: 5, 
+    photo: "/user1.png" 
+  },
+  { 
+    author: "Ana Carla", 
+    text: "Sou cliente à anos, e não troco por nada. Meu cabelo já virou patrimônio delas. E amo. Muito sucesso sempre. ❤️", 
+    rating: 5, 
+    photo: "/user2.png" 
+  },
+  { 
+    author: "Julia Abreu", 
+    text: "O melhor e mais lindo loiro da Região, mega perfeito, cliente a mais de 10 anos e continuarei por muitos mais!", 
+    rating: 5, 
+    photo: "/user3.png" 
+  },
+];
+---
+
+<html lang="pt-br">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width" />
+        <title>Rosa Pink - Design</title>
+        <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+    </head>
+    
+    <body class="bg-[#FFF7EA] font-serif overflow-x-hidden">
+
+        <header class="relative h-[8vh] w-full">
+            
+
+            <nav class="fixed top-0 left-0 w-full z-[100] px-6 py-2 flex justify-between items-center border-b border-white/10 bg-zinc-950/90 backdrop-blur-md">
+                <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap" rel="stylesheet">
+                <a href="/" class="text-white text-6xl  italic z-[110] font-['Great_Vibes']">rp</a>
+
+                <div class="hidden md:flex gap-8 items-center text-zinc-400 text-sm uppercase tracking-widest">
+                    <a href="/sobre" class="text-white hover:text-[#FFB1A1] transition-colors">Sobre Nós</a>
+                    <a href="/produtos" class="text-white hover:text-[#FFB1A1] transition-colors">Produtos</a>
+                    <a href="/servicos" class="text-white hover:text-[#FFB1A1] transition-colors">Serviços</a>
+                </div>
+
+                <button id="menu-trigger" class="relative z-[110] flex flex-col gap-2 md:hidden group p-2 outline-none">
+                    <span class="line-1 w-8 h-0.5 bg-white transition-all"></span>
+                    <span class="line-2 w-8 h-0.5 bg-white transition-all"></span>
+                </button>
+            </nav>
+
+            <div id="menu-overlay" class="fixed inset-0 bg-zinc-950 z-[90] flex flex-col items-center justify-center translate-y-[-100%] opacity-0 pointer-events-none">
+                <div class="flex flex-col gap-8 text-center">
+                    <a href="/sobre" class="nav-link text-white text-4xl font-serif italic opacity-0 translate-y-10">Sobre Nós</a>
+                    <a href="/produtos" class="nav-link text-white text-4xl font-serif italic opacity-0 translate-y-10">Produtos</a>
+                    <a href="/servicos" class="nav-link text-white text-4xl font-serif italic opacity-0 translate-y-10">Serviços</a>
+                </div>
+            </div>
+
+        </header>
+
+
+        
+
+
+        <section class="bg-[#F2D7C2] py-16 overflow-hidden">
+            <div class="text-center border-t border-b border-zinc-600/30 py-4 mb-10 mx-6">
+                <span class="text-zinc-800 italic uppercase text-sm tracking-widest">Populares</span>
+            </div>
+
+            <div class="relative group px-6">
+                <button id="prev" class="absolute left-10 top-1/2 -translate-y-1/2 z-30 bg-white/20 hover:bg-white/50 p-3 rounded-full backdrop-blur-sm hidden md:block transition-all">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m15 18-6-6 6-6"/></svg>
+                </button>
+                <button id="next" class="absolute right-10 top-1/2 -translate-y-1/2 z-30 bg-white/20 hover:bg-white/50 p-3 rounded-full backdrop-blur-sm hidden md:block transition-all">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></svg>
+                </button>
+
+                <div id="carousel-track" class="flex gap-4 overflow-x-auto snap-x snap-mandatory scroll-smooth no-scrollbar">
+                    
+                        <div class="reveal-img opacity-1 min-w-[85%] md:min-w-[30%] snap-center border border-zinc-800/20 p-2 bg-white/10">
+                            <img src="/cabelo.jpg" class="w-full h-96 object-cover" >
+                        </div>
+                         <div class="reveal-img opacity-1 min-w-[85%] md:min-w-[30%] snap-center border border-zinc-800/20 p-2 bg-white/10">
+                            <img src="/cabelo.jpg" class="w-full h-96 object-cover" >
+                        </div>
+                         <div class="reveal-img opacity-1 min-w-[85%] md:min-w-[30%] snap-center border border-zinc-800/20 p-2 bg-white/10">
+                            <img src="/cabelo.jpg" class="w-full h-96 object-cover" >
+                        </div>
+                         <div class="reveal-img opacity-1 min-w-[85%] md:min-w-[30%] snap-center border border-zinc-800/20 p-2 bg-white/10">
+                            <img src="/cabelo.jpg" class="w-full h-96 object-cover" >
+                        </div>
+                        <div class="reveal-img opacity-1 min-w-[85%] md:min-w-[30%] snap-center border border-zinc-800/20 p-2 bg-white/10">
+                            <img src="/cabelo.jpg" class="w-full h-96 object-cover" >
+                        </div>
+                    
+                </div>
+            </div>
+        </section>
+
+        
+        <section class="bg-[#F2D7C2] py-16 overflow-hidden">
+            <div class="text-center border-t border-b border-zinc-600/30 py-4 mb-10 mx-6">
+                <span class="text-zinc-800 italic uppercase text-sm tracking-widest">Populares</span>
+            </div>
+
+            <div class="relative group px-6">
+                <button id="prev" class="absolute left-10 top-1/2 -translate-y-1/2 z-30 bg-white/20 hover:bg-white/50 p-3 rounded-full backdrop-blur-sm hidden md:block transition-all">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m15 18-6-6 6-6"/></svg>
+                </button>
+                <button id="next" class="absolute right-10 top-1/2 -translate-y-1/2 z-30 bg-white/20 hover:bg-white/50 p-3 rounded-full backdrop-blur-sm hidden md:block transition-all">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></svg>
+                </button>
+
+                <div id="carousel-track" class="flex gap-4 overflow-x-auto snap-x snap-mandatory scroll-smooth no-scrollbar">
+                    
+                        <div class="reveal-img opacity-1 min-w-[85%] md:min-w-[30%] snap-center border border-zinc-800/20 p-2 bg-white/10">
+                            <img src="/cabelo.jpg" class="w-full h-96 object-cover" >
+                        </div>
+                         <div class="reveal-img opacity-1 min-w-[85%] md:min-w-[30%] snap-center border border-zinc-800/20 p-2 bg-white/10">
+                            <img src="/cabelo.jpg" class="w-full h-96 object-cover" >
+                        </div>
+                         <div class="reveal-img opacity-1 min-w-[85%] md:min-w-[30%] snap-center border border-zinc-800/20 p-2 bg-white/10">
+                            <img src="/cabelo.jpg" class="w-full h-96 object-cover" >
+                        </div>
+                         <div class="reveal-img opacity-1 min-w-[85%] md:min-w-[30%] snap-center border border-zinc-800/20 p-2 bg-white/10">
+                            <img src="/cabelo.jpg" class="w-full h-96 object-cover" >
+                        </div>
+                        <div class="reveal-img opacity-1 min-w-[85%] md:min-w-[30%] snap-center border border-zinc-800/20 p-2 bg-white/10">
+                            <img src="/cabelo.jpg" class="w-full h-96 object-cover" >
+                        </div>
+                    
+                </div>
+            </div>
+        </section>
+
+        
+        <section class="bg-[#F2D7C2] py-16 overflow-hidden">
+            <div class="text-center border-t border-b border-zinc-600/30 py-4 mb-10 mx-6">
+                <span class="text-zinc-800 italic uppercase text-sm tracking-widest">Populares</span>
+            </div>
+
+            <div class="relative group px-6">
+                <button id="prev" class="absolute left-10 top-1/2 -translate-y-1/2 z-30 bg-white/20 hover:bg-white/50 p-3 rounded-full backdrop-blur-sm hidden md:block transition-all">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m15 18-6-6 6-6"/></svg>
+                </button>
+                <button id="next" class="absolute right-10 top-1/2 -translate-y-1/2 z-30 bg-white/20 hover:bg-white/50 p-3 rounded-full backdrop-blur-sm hidden md:block transition-all">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></svg>
+                </button>
+
+                <div id="carousel-track" class="flex gap-4 overflow-x-auto snap-x snap-mandatory scroll-smooth no-scrollbar">
+                    
+                        <div class="reveal-img opacity-1 min-w-[85%] md:min-w-[30%] snap-center border border-zinc-800/20 p-2 bg-white/10">
+                            <img src="/cabelo.jpg" class="w-full h-96 object-cover" >
+                        </div>
+                         <div class="reveal-img opacity-1 min-w-[85%] md:min-w-[30%] snap-center border border-zinc-800/20 p-2 bg-white/10">
+                            <img src="/cabelo.jpg" class="w-full h-96 object-cover" >
+                        </div>
+                         <div class="reveal-img opacity-1 min-w-[85%] md:min-w-[30%] snap-center border border-zinc-800/20 p-2 bg-white/10">
+                            <img src="/cabelo.jpg" class="w-full h-96 object-cover" >
+                        </div>
+                         <div class="reveal-img opacity-1 min-w-[85%] md:min-w-[30%] snap-center border border-zinc-800/20 p-2 bg-white/10">
+                            <img src="/cabelo.jpg" class="w-full h-96 object-cover" >
+                        </div>
+                        <div class="reveal-img opacity-1 min-w-[85%] md:min-w-[30%] snap-center border border-zinc-800/20 p-2 bg-white/10">
+                            <img src="/cabelo.jpg" class="w-full h-96 object-cover" >
+                        </div>
+                    
+                </div>
+            </div>
+        </section>
+
+
+
+        
+
+        
+
+        <footer class="py-20 bg-[#FDF8F1] justify-center items-center flex flex-col gap-4 md:justify-between md:flex-row md:px-10 h-20 border-t border-zinc-600/30 text-zinc-600 text-xs uppercase tracking-widest">
+            <div class="flex gap-6">
+                <a href="https://www.instagram.com/rosapinkhair551/"><p class="hover:text-pink-400 cursor-pointer transition-colors">Instagram</p></a>
+                <a href="https://www.facebook.com/people/Instituto-Rosa-Pink-Hair/100064033303194/"><p class="hover:text-pink-400 cursor-pointer transition-colors">Facebook</p></a>
+                <a href="https://wa.me/5511999673057"><p class="hover:text-pink-400 cursor-pointer transition-colors">Whatsapp</p></a>
+            </div>
+            <p>© 2026. SITE DESIGN BY <a href="https://www.linkedin.com/in/nicollas-bergo-calheiros-de-melo-108289266/" class="font-bold underline" target="_blank">Nicollas</a></p>
+        </footer>
+
+        <WhatsAppButton />
+
+
+        <style>
+            /* Esconde a barra de rolagem mas mantém a funcionalidade */
+            .no-scrollbar::-webkit-scrollbar {
+                display: none;
+            }
+            .no-scrollbar {
+                -ms-overflow-style: none;
+                scrollbar-width: none;
+            }
+        </style>
+
+
+        <script>
+            import { gsap } from 'gsap';
+            import { ScrollTrigger } from 'gsap/ScrollTrigger';
+            gsap.registerPlugin(ScrollTrigger);
+
+            /** * ANIMAÇÕES HERO & SCROLL 
+             */
+            gsap.from("#hero-text", { opacity: 0, x: -50, duration: 1.2, ease: "power4.out" });
+
+            // Flores (Revelam conforme o scroll)
+            gsap.from(".reveal-left", {
+                x: -100, opacity: 0,
+                scrollTrigger: { trigger: ".reveal-left", start: "top 80%", end: "top 40%", scrub: 1 }
+            });
+
+            gsap.from(".reveal-right", {
+                x: 100, opacity: 0,
+                scrollTrigger: { trigger: ".reveal-right", start: "top 80%", end: "top 40%", scrub: 1 }
+            });
+
+            // Galeria (ScrollTrigger)
+            gsap.from(".reveal-up", {
+                y: 50, opacity: 1, stagger: 0.2, duration: 1,
+                scrollTrigger: { trigger: ".reveal-up", start: "top 90%" }
+            });
+
+            // Batch Universal para Imagens
+            ScrollTrigger.batch(".reveal-img", {
+                onEnter: (batch) => {
+                    gsap.from(batch, {
+                        opacity: 0, y: 60, duration: 1.8, stagger: 0.25,
+                        ease: "expo.out", overwrite: true
+                    });
+                },
+                start: "top 90%",
+            });
+
+            /** * CONTROLE DO CARROSSEL 
+             */
+            const track = document.getElementById('carousel-track');
+            const nextBtn = document.getElementById('next');
+            const prevBtn = document.getElementById('prev');
+
+            if (track && nextBtn && prevBtn) {
+                nextBtn.addEventListener('click', () => {
+                    track.scrollLeft += track.offsetWidth * 0.8;
+                });
+                prevBtn.addEventListener('click', () => {
+                    track.scrollLeft -= track.offsetWidth * 0.8;
+                });
+            }
+
+            /** * ANIMAÇÃO DE ENTRADA (CARDS) 
+             */
+            ScrollTrigger.batch(".reveal-card", {
+                onEnter: (batch) => {
+                    gsap.to(batch, {
+                        opacity: 1, y: 0, scale: 1, duration: 1.5,
+                        stagger: 0.2, ease: "expo.out",
+                        startAt: { y: 50, opacity: 0, scale: 0.95 }
+                    });
+                },
+                start: "top 85%",
+            });
+
+            /** * LÓGICA MENU HAMBÚRGUER 
+             */
+            const trigger = document.getElementById('menu-trigger');
+            const overlay = document.getElementById('menu-overlay');
+            const links = document.querySelectorAll('.nav-link');
+            const line1 = document.querySelector('.line-1');
+            const line2 = document.querySelector('.line-2');
+
+            let isMenuOpen = false;
+
+            const menuTl = gsap.timeline({ paused: true, defaults: { ease: "expo.inOut", duration: 0.8 } });
+
+            menuTl.to(overlay, { translateY: 0, opacity: 1, pointerEvents: "auto" })
+                  .to(links, { opacity: 1, y: 0, stagger: 0.1, duration: 0.6 }, "-=0.4")
+                  .to(line1, { rotation: 45, y: 5, backgroundColor: "#FFB1A1", zIndex: 100, duration: 0.3 }, 0)
+                  .to(line2, { rotation: -45, y: -5, backgroundColor: "#FFB1A1", zIndex: 100, duration: 0.3 }, 0);
+
+            trigger?.addEventListener('click', () => {
+                if (!isMenuOpen) { menuTl.play(); } else { menuTl.reverse(); }
+                isMenuOpen = !isMenuOpen;
+            });
+
+            links.forEach(link => {
+                link.addEventListener('click', () => {
+                    menuTl.reverse();
+                    isMenuOpen = false;
+                });
+            });
+
+
+
+
+
+        </script>
+    </body>
+</html>
