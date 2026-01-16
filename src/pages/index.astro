@@ -1,10 +1,15 @@
 ---
 // index.astro - Design Rosa Pink
 
-// 1. IMPORTES: Ficam sempre no topo
+/** * 1. IMPORTES 
+ * Seguindo princípios de modularidade
+ */
 import ReviewCard from '../components/ReviewCard.astro';
+import WhatsAppButton from '../components/WhatsAppButton.astro'; 
 
-// 2. DADOS (MOCK): Variáveis que alimentam o componente
+/** * 2. DADOS (MOCK) 
+ * Camada de dados (Model) separada da visualização
+ */
 const mockReviews = [
   { 
     author: "Mirian Meri Mecorssi", 
@@ -20,392 +25,301 @@ const mockReviews = [
   },
   { 
     author: "Julia Abreu", 
-    text: "O melhor e mais lindo loiro da Região, mega perfeito, cliente a mais de 10 anos e continuarei por muitos mais! As meninas são um brinde a parte, todas são maravilhosas!", 
+    text: "O melhor e mais lindo loiro da Região, mega perfeito, cliente a mais de 10 anos e continuarei por muitos mais!", 
     rating: 5, 
     photo: "/user3.png" 
   },
 ];
-
 ---
 
 <html lang="pt-br">
-	<head>
-		<meta charset="utf-8" />
-		<meta name="viewport" content="width=device-width" />
-		<title>Rosa Pink - Design</title>
-		<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
-	</head>
-	<body class="bg-[#FFF7EA] font-serif overflow-x-hidden">
-
-		<header class="relative h-[50vh] w-full">
-			<div class="absolute inset-0 z-0">
-				<img src="/fundo.jfif" class="w-full h-full object-cover" alt="Fundo">
-				<div class="absolute inset-0 bg-black/40"></div> </div>
-
-			<nav class="fixed top-0 left-0 w-full z-50 px-6 py-6 flex justify-between items-center border-b border-white/10 bg-zinc-950/200 backdrop-blur-md">
-    <a href="/" class="text-white text-3xl font-serif italic z-[60]">Rosa pink</a>
-
-    <div class="hidden md:flex gap-8 items-center text-zinc-400 text-sm uppercase tracking-widest">
-        <a href="#sobre" class="text-white hover:text-[#FFB1A1] transition-colors">Sobre Nós</a>
-        <a href="#produtos" class="text-white hover:text-[#FFB1A1] transition-colors">Produtos</a>
-        <a href="#servicos" class="text-white hover:text-[#FFB1A1] transition-colors">Serviços</a>
-    </div>
-
-    <button id="menu-trigger" class="relative z-[60] flex flex-col gap-2 md:hidden group p-2">
-        <span class="line-1 w-8 h-0.5 bg-white transition-all duration-300"></span>
-        <span class="line-2 w-8 h-0.5 bg-white transition-all duration-300"></span>
-    </button>
-</nav>
-
-<div id="menu-overlay" class="fixed inset-0 bg-zinc-950 z-[55] flex flex-col items-center justify-center translate-y-[-100%] opacity-0 pointer-events-none">
-    <div class="flex flex-col gap-8 text-center">
-        <a href="#sobre" class="nav-link text-white text-4xl font-serif italic opacity-0 translate-y-10">Sobre Nós</a>
-        <a href="#produtos" class="nav-link text-white text-4xl font-serif italic opacity-0 translate-y-10">Produtos</a>
-        <a href="#servicos" class="nav-link text-white text-4xl font-serif italic opacity-0 translate-y-10">Serviços</a>
-    </div>
-</div>
-		</header>
-
-
-	<div class="flex flex-col md:flex-row w-full">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width" />
+        <title>Rosa Pink - Design</title>
+        <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+    </head>
     
-    <section class="relative py-20 px-10 text-center bg-[#FDF8F1] overflow-hidden w-full md:w-1/2 flex items-center">
-        <img src="/florVermelha.png" class="absolute left-[-30px] top-1/2 -translate-y-1/2 h-48 md:h-64 opacity-80 reveal-left" alt="Flor Vermelha">
-        
-        <img src="/florRosa.png" class="absolute right-[-30px] top-1/2 -translate-y-1/2 h-48 md:h-64 opacity-80 reveal-right" alt="Flor Rosa">
+    <body class="bg-[#FFF7EA] font-serif overflow-x-hidden">
 
-        <div class="relative z-10 max-w-sm mx-auto">
-            <h2 class="text-zinc-800 text-lg uppercase tracking-widest border-b border-zinc-400 inline-block mb-8 pb-1">
-                Lorem ipsum dolor sit amet
-            </h2>
-            <p class="text-zinc-700 leading-relaxed mb-8 italic text-sm md:text-base">
-                consectetur adipiscing elit. Proin quis dapibus diam, at pellentesque orci. In quis ante non mi maximus sagittis a nec le.
-            </p>
-            <button class="border-2 border-[#888] text-zinc-800 px-10 py-1 font-sans text-xs tracking-tighter hover:bg-[#FFB1A1] hover:text-white transition-all">
-                BUTOM
-            </button>
-        </div>
-    </section>
-
-    <section class="bg-[#FFB1A1] py-10 px-2 w-full md:w-1/2 flex items-center justify-center">
-        <div class="border border-zinc-800 p-1 w-full max-w-md reveal-img ">
-            <img src="/cabelo.jpg" class=" w-full h-auto object-cover" alt="Cabelo destaque">
-        </div>
-    </section>
-
-</div>
-
-		<section class="bg-[#F2D7C2] py-16 overflow-hidden">
-    <div class="text-center border-t border-b border-zinc-600/30 py-4 mb-10 mx-6">
-        <span class="text-zinc-800 italic uppercase text-sm tracking-widest">Populares</span>
-    </div>
-
-    <div class="relative group px-6">
-        <button id="prev" class="absolute left-10 top-1/2 -translate-y-1/2 z-30 bg-white/20 hover:bg-white/50 p-3 rounded-full backdrop-blur-sm hidden md:block transition-all">
-            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m15 18-6-6 6-6"/></svg>
-        </button>
-        <button id="next" class="absolute right-10 top-1/2 -translate-y-1/2 z-30 bg-white/20 hover:bg-white/50 p-3 rounded-full backdrop-blur-sm hidden md:block transition-all">
-            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></svg>
-        </button>
-
-        <div 
-            id="carousel-track" 
-            class="flex gap-4 overflow-x-auto snap-x snap-mandatory scroll-smooth no-scrollbar"
-        >
-            <div class="reveal-img opacity-1 min-w-[85%] md:min-w-[30%] snap-center border border-zinc-800/20 p-2 bg-white/10">
-                <img src="/cabelo.jpg" class="w-full h-96 object-cover" alt="Galeria 1">
+        <header class="relative h-[50vh] w-full">
+            <div class="absolute inset-0 z-0">
+                <img src="/fundo.jfif" class="w-full h-full object-cover" alt="Fundo">
+                <div class="absolute inset-0 bg-black/40 justify-center items-center flex flex-col">
+                    <h1 class="text-white text-2xl md:text-4xl font-serif italic z-[110] absolute top-1/2 ">
+                        Rosa Pink</h1>
+                        <h3 class="text-white text-2x1 md:text-xl font-serif italic z-[110] absolute top-1/2  mt-8">
+                            INSTITUTO DE BELEZA</h3>
+                </div> 
             </div>
-            <div class="reveal-img opacity-1 min-w-[85%] md:min-w-[30%] snap-center border border-zinc-800/20 p-2 bg-white/10">
-                <img src="/cabelo.jpg" class="w-full h-96 object-cover" alt="Galeria 2">
-            </div>
-            <div class="reveal-img opacity-1 min-w-[85%] md:min-w-[30%] snap-center border border-zinc-800/20 p-2 bg-white/10">
-                <img src="/cabelo.jpg" class="w-full h-96 object-cover" alt="Galeria 3">
-            </div>
-            <div class="reveal-img opacity-1 min-w-[85%] md:min-w-[30%] snap-center border border-zinc-800/20 p-2 bg-white/10">
-                <img src="/cabelo.jpg" class="w-full h-96 object-cover" alt="Galeria 4">
-            </div>
-			<div class="reveal-img opacity-1 min-w-[85%] md:min-w-[30%] snap-center border border-zinc-800/20 p-2 bg-white/10">
-                <img src="/cabelo.jpg" class="w-full h-96 object-cover" alt="Galeria 1">
-            </div>
-            <div class="reveal-img opacity-1 min-w-[85%] md:min-w-[30%] snap-center border border-zinc-800/20 p-2 bg-white/10">
-                <img src="/cabelo.jpg" class="w-full h-96 object-cover" alt="Galeria 2">
-            </div>
-            <div class="reveal-img opacity-1 min-w-[85%] md:min-w-[30%] snap-center border border-zinc-800/20 p-2 bg-white/10">
-                <img src="/cabelo.jpg" class="w-full h-96 object-cover" alt="Galeria 3">
-            </div>
-            <div class="reveal-img opacity-1 min-w-[85%] md:min-w-[30%] snap-center border border-zinc-800/20 p-2 bg-white/10">
-                <img src="/cabelo.jpg" class="w-full h-96 object-cover" alt="Galeria 4">
-            </div>
-        </div>
-    </div>
-</section>
 
+            <nav class="fixed top-0 left-0 w-full z-[100] px-6 py-2 flex justify-between items-center border-b border-white/10 bg-zinc-950/180 backdrop-blur-md">
+                <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap" rel="stylesheet">
+                <a href="/" class="text-white text-6xl  italic z-[110] font-['Great_Vibes']">rp</a>
 
+                <div class="hidden md:flex gap-8 items-center text-zinc-400 text-sm uppercase tracking-widest">
+                    <a href="/sobre" class="text-white hover:text-[#FFB1A1] transition-colors">Sobre Nós</a>
+                    <a href="/produtos" class="text-white hover:text-[#FFB1A1] transition-colors">Produtos</a>
+                    <a href="/servicos" class="text-white hover:text-[#FFB1A1] transition-colors">Serviços</a>
+                </div>
 
+                <button id="menu-trigger" class="relative z-[110] flex flex-col gap-2 md:hidden group p-2 outline-none">
+                    <span class="line-1 w-8 h-0.5 bg-white transition-all"></span>
+                    <span class="line-2 w-8 h-0.5 bg-white transition-all"></span>
+                </button>
+            </nav>
 
-
-
-<section class="py-16 bg-#FFF7EA px-6 ">
-  <div class="max-w-6xl mx-auto">
-    <div class="text-center mb-16">
-      <h2 class="text-[#FFB1A1] uppercase tracking-[0.3em] text-sm mb-4">Depoimentos</h2>
-      <h3 class="text-[#FFB1A1] text-4xl font-serif italic">O que dizem nossas clientes</h3>
-    </div>
-
-    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 ">
-      {mockReviews.map((review) => (
-        <ReviewCard {...review} />
-      ))}
-    </div>
-	<div class="text-center  py-16">
-      <a href="https://www.google.com/maps/place/Rosa+Pink+Hair/@-23.541159,-46.3003561,17z/data=!3m1!4b1!4m6!3m5!1s0x94ce7a0c39a798eb:0x5cb4dc0cdafce715!8m2!3d-23.5411639!4d-46.2977758!16s%2Fg%2F11bt_kj502?entry=ttu&g_ep=EgoyMDI2MDExMy4wIKXMDSoASAFQAw%3D%3D" target="_blank">
-		<h3 class="text-[#FFB1A1] text-4xl font-serif italic ">Confira Mais</h3></a>
-    </div>
-
-  </div>
-</section>
-
-
-
-
-<section class="py-24 bg-[#FFB1A1] px-6 overflow-hidden">
-    <div class="max-w-6xl mx-auto">
-        <div class="flex flex-col md:flex-row gap-12 items-center">
-            
-            <div class="w-full md:w-1/2 reveal-text opacity-1">
-                <h2 class="text-white uppercase tracking-[0.3em] text-sm mb-4">Onde Estamos</h2>
-                <h3 class="text-white text-4xl md:text-5xl font-serif italic mb-8">Venha nos visitar</h3>
-                
-                <div class="space-y-6 text-zinc-400">
-                    <div class="flex items-start gap-4">
-                        <div class="text-blue-500 mt-1">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>
-                        </div>
-                        <p class="text-white">Av. Taiacupeba, 298 - Vila Amorim, Suzano - SP, 08610-190<br/>São Paulo - SP, 01310-100</p>
-                    </div>
-
-                    <div class="flex items-start gap-4">
-                        <div class="text-blue-500 mt-1">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
-                        </div>
-                        <p class="text-white">contato@rosapink.com.br</p>
-                    </div>
-
-                    <div class="pt-6 border-t border-white/10">
-                        <h4 class="text-white font-bold mb-2">Horário de Atendimento:</h4>
-                        <p class="text-sm text-white">Terça a Sábado: 09h às 19h</p>
-                    </div>
+            <div id="menu-overlay" class="fixed inset-0 bg-zinc-950 z-[90] flex flex-col items-center justify-center translate-y-[-100%] opacity-0 pointer-events-none">
+                <div class="flex flex-col gap-8 text-center">
+                    <a href="/sobre" class="nav-link text-white text-4xl font-serif italic opacity-0 translate-y-10">Sobre Nós</a>
+                    <a href="/produtos" class="nav-link text-white text-4xl font-serif italic opacity-0 translate-y-10">Produtos</a>
+                    <a href="/servicos" class="nav-link text-white text-4xl font-serif italic opacity-0 translate-y-10">Serviços</a>
                 </div>
             </div>
 
-            <div class="w-full md:w-1/2 reveal-img opacity-1">
-                <div class="relative group p-2 border border-white/10 rounded-3xl bg-white backdrop-blur-sm">
-                    <iframe 
-                         src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3657.7591402437465!2d-46.2977758!3d-23.541163899999997!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94ce7a0c39a798eb%3A0x5cb4dc0cdafce715!2sRosa%20Pink%20Hair!5e0!3m2!1spt-BR!2sbr!4v1768502611300!5m2!1spt-BR!2sbr" 
-                        class="w-full h-[400px] rounded-2xl  " 
-                        style="border:0;" 
-                        allowfullscreen="" 
-                        loading="lazy" 
-                        referrerpolicy="no-referrer-when-downgrade">
-                    </iframe>
+        </header>
+
+
+        <div class="flex flex-col md:flex-row w-full">
+            <section class="relative py-20 px-10 text-center bg-[#FDF8F1] overflow-hidden w-full md:w-1/2 flex items-center">
+                <img src="/florVermelha.png" class="absolute left-[-30px] top-1/2 -translate-y-1/2 h-48 md:h-64 opacity-80 reveal-left" alt="Flor Vermelha">
+                <img src="/florRosa.png" class="absolute right-[-30px] top-1/2 -translate-y-1/2 h-48 md:h-64 opacity-80 reveal-right" alt="Flor Rosa">
+
+                <div class="relative z-10 max-w-sm mx-auto">
+                    <h2 class="text-zinc-800 text-lg uppercase tracking-widest border-b border-zinc-400 inline-block mb-8 pb-1">
+                        Lorem ipsum dolor sit amet
+                    </h2>
+                    <p class="text-zinc-700 leading-relaxed mb-8 italic text-sm md:text-base">
+                        consectetur adipiscing elit. Proin quis dapibus diam, at pellentesque orci. In quis ante non mi maximus sagittis a nec le.
+                    </p>
+                    <button class="border-2 border-[#888] text-zinc-800 px-10 py-1 font-sans text-xs tracking-tighter hover:bg-[#FFB1A1] hover:text-white transition-all">
+                        BUTOM
+                    </button>
                 </div>
+            </section>
+
+            <section class="bg-[#FFB1A1] py-10 px-2 w-full md:w-1/2 flex items-center justify-center">
+                <div class="border border-zinc-800 p-1 w-full max-w-md reveal-img">
+                    <img src="/cabelo.jpg" class="w-full h-auto object-cover" alt="Cabelo destaque">
+                </div>
+            </section>
+        </div>
+
+
+        <section class="bg-[#F2D7C2] py-16 overflow-hidden">
+            <div class="text-center border-t border-b border-zinc-600/30 py-4 mb-10 mx-6">
+                <span class="text-zinc-800 italic uppercase text-sm tracking-widest">Populares</span>
             </div>
 
-        </div>
-    </div>
-</section>
+            <div class="relative group px-6">
+                <button id="prev" class="absolute left-10 top-1/2 -translate-y-1/2 z-30 bg-white/20 hover:bg-white/50 p-3 rounded-full backdrop-blur-sm hidden md:block transition-all">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m15 18-6-6 6-6"/></svg>
+                </button>
+                <button id="next" class="absolute right-10 top-1/2 -translate-y-1/2 z-30 bg-white/20 hover:bg-white/50 p-3 rounded-full backdrop-blur-sm hidden md:block transition-all">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></svg>
+                </button>
+
+                <div id="carousel-track" class="flex gap-4 overflow-x-auto snap-x snap-mandatory scroll-smooth no-scrollbar">
+                    {[1, 2, 3, 4, 1, 2, 3, 4].map((i) => (
+                        <div class="reveal-img opacity-1 min-w-[85%] md:min-w-[30%] snap-center border border-zinc-800/20 p-2 bg-white/10">
+                            <img src="/cabelo.jpg" class="w-full h-96 object-cover" alt={`Galeria ${i}`}>
+                        </div>
+                    ))}
+                </div>
+            </div>
+        </section>
+
+
+        <section class="py-16 bg-[#FFF7EA] px-6">
+            <div class="max-w-6xl mx-auto">
+                <div class="text-center mb-16">
+                    <h2 class="text-[#FFB1A1] uppercase tracking-[0.3em] text-sm mb-4">Depoimentos</h2>
+                    <h3 class="text-[#FFB1A1] text-4xl font-serif italic">O que dizem nossas clientes</h3>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                    {mockReviews.map((review) => (
+                        <ReviewCard {...review} />
+                    ))}
+                </div>
+
+                <div class="text-center py-16">
+                    <a href="https://www.google.com/maps/place/Rosa+Pink+Hair/@-23.541159,-46.3003561,17z/data=!3m1!4b1!4m6!3m5!1s0x94ce7a0c39a798eb:0x5cb4dc0cdafce715!8m2!3d-23.5411639!4d-46.2977758!16s%2Fg%2F11bt_kj502?entry=ttu&g_ep=EgoyMDI2MDExMy4wIKXMDSoASAFQAw%3D%3D" target="_blank">
+                        <h3 class="text-[#FFB1A1] text-4xl font-serif italic hover:opacity-70 transition-opacity">Confira Mais</h3>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+
+        <section class="py-24 bg-[#FFB1A1] px-6 overflow-hidden">
+            <div class="max-w-6xl mx-auto">
+                <div class="flex flex-col md:flex-row gap-12 items-center">
+                    <div class="w-full md:w-1/2 reveal-text opacity-1">
+                        <h2 class="text-white uppercase tracking-[0.3em] text-sm mb-4">Onde Estamos</h2>
+                        <h3 class="text-white text-4xl md:text-5xl font-serif italic mb-8">Venha nos visitar</h3>
+                        
+                        <div class="space-y-6 text-zinc-400">
+                            <div class="flex items-start gap-4">
+                                <div class="text-blue-500 mt-1">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>
+                                </div>
+                                <p class="text-white">Av. Taiacupeba, 298 - Vila Amorim, Suzano - SP, 08610-190<br/>São Paulo - SP, 01310-100</p>
+                            </div>
+
+                            <div class="flex items-start gap-4">
+                                <div class="text-blue-500 mt-1">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+                                </div>
+                                <p class="text-white">contato@rosapink.com.br</p>
+                            </div>
+
+                            <div class="pt-6 border-t border-white/10">
+                                <h4 class="text-white font-bold mb-2">Horário de Atendimento:</h4>
+                                <p class="text-sm text-white">Terça a Sábado: 09h às 19h</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="w-full md:w-1/2 reveal-img opacity-1">
+                        <div class="relative group p-2 border border-white/10 rounded-3xl bg-white backdrop-blur-sm">
+                            <iframe 
+                                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3657.7591402437465!2d-46.2977758!3d-23.541163899999997!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94ce7a0c39a798eb%3A0x5cb4dc0cdafce715!2sRosa%20Pink%20Hair!5e0!3m2!1spt-BR!2sbr!4v1768502611300!5m2!1spt-BR!2sbr" 
+                                class="w-full h-[400px] rounded-2xl" 
+                                style="border:0;" 
+                                allowfullscreen="" 
+                                loading="lazy" 
+                                referrerpolicy="no-referrer-when-downgrade">
+                            </iframe>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+        <footer class="py-20 bg-[#FDF8F1] justify-center items-center flex flex-col gap-4 md:justify-between md:flex-row md:px-10 h-20 border-t border-zinc-600/30 text-zinc-600 text-xs uppercase tracking-widest">
+            <div class="flex gap-6">
+                <a href="https://www.instagram.com/rosapinkhair551/"><p class="hover:text-pink-400 cursor-pointer transition-colors">Instagram</p></a>
+                <a href="https://www.facebook.com/people/Instituto-Rosa-Pink-Hair/100064033303194/"><p class="hover:text-pink-400 cursor-pointer transition-colors">Facebook</p></a>
+                <a href="https://wa.me/5511999673057"><p class="hover:text-pink-400 cursor-pointer transition-colors">Whatsapp</p></a>
+            </div>
+            <p>© 2026. SITE DESIGN BY <a href="https://www.linkedin.com/in/nicollas-bergo-calheiros-de-melo-108289266/" class="font-bold underline" target="_blank">Nicollas</a></p>
+        </footer>
+
+        <WhatsAppButton />
+
+
+        <style>
+            /* Esconde a barra de rolagem mas mantém a funcionalidade */
+            .no-scrollbar::-webkit-scrollbar {
+                display: none;
+            }
+            .no-scrollbar {
+                -ms-overflow-style: none;
+                scrollbar-width: none;
+            }
+        </style>
+
+
+        <script>
+            import { gsap } from 'gsap';
+            import { ScrollTrigger } from 'gsap/ScrollTrigger';
+            gsap.registerPlugin(ScrollTrigger);
+
+            /** * ANIMAÇÕES HERO & SCROLL 
+             */
+            gsap.from("#hero-text", { opacity: 0, x: -50, duration: 1.2, ease: "power4.out" });
+
+            // Flores (Revelam conforme o scroll)
+            gsap.from(".reveal-left", {
+                x: -100, opacity: 0,
+                scrollTrigger: { trigger: ".reveal-left", start: "top 80%", end: "top 40%", scrub: 1 }
+            });
+
+            gsap.from(".reveal-right", {
+                x: 100, opacity: 0,
+                scrollTrigger: { trigger: ".reveal-right", start: "top 80%", end: "top 40%", scrub: 1 }
+            });
+
+            // Galeria (ScrollTrigger)
+            gsap.from(".reveal-up", {
+                y: 50, opacity: 1, stagger: 0.2, duration: 1,
+                scrollTrigger: { trigger: ".reveal-up", start: "top 90%" }
+            });
+
+            // Batch Universal para Imagens
+            ScrollTrigger.batch(".reveal-img", {
+                onEnter: (batch) => {
+                    gsap.from(batch, {
+                        opacity: 0, y: 60, duration: 1.8, stagger: 0.25,
+                        ease: "expo.out", overwrite: true
+                    });
+                },
+                start: "top 90%",
+            });
+
+            /** * CONTROLE DO CARROSSEL 
+             */
+            const track = document.getElementById('carousel-track');
+            const nextBtn = document.getElementById('next');
+            const prevBtn = document.getElementById('prev');
+
+            if (track && nextBtn && prevBtn) {
+                nextBtn.addEventListener('click', () => {
+                    track.scrollLeft += track.offsetWidth * 0.8;
+                });
+                prevBtn.addEventListener('click', () => {
+                    track.scrollLeft -= track.offsetWidth * 0.8;
+                });
+            }
+
+            /** * ANIMAÇÃO DE ENTRADA (CARDS) 
+             */
+            ScrollTrigger.batch(".reveal-card", {
+                onEnter: (batch) => {
+                    gsap.to(batch, {
+                        opacity: 1, y: 0, scale: 1, duration: 1.5,
+                        stagger: 0.2, ease: "expo.out",
+                        startAt: { y: 50, opacity: 0, scale: 0.95 }
+                    });
+                },
+                start: "top 85%",
+            });
+
+            /** * LÓGICA MENU HAMBÚRGUER 
+             */
+            const trigger = document.getElementById('menu-trigger');
+            const overlay = document.getElementById('menu-overlay');
+            const links = document.querySelectorAll('.nav-link');
+            const line1 = document.querySelector('.line-1');
+            const line2 = document.querySelector('.line-2');
+
+            let isMenuOpen = false;
+
+            const menuTl = gsap.timeline({ paused: true, defaults: { ease: "expo.inOut", duration: 0.8 } });
+
+            menuTl.to(overlay, { translateY: 0, opacity: 1, pointerEvents: "auto" })
+                  .to(links, { opacity: 1, y: 0, stagger: 0.1, duration: 0.6 }, "-=0.4")
+                  .to(line1, { rotation: 45, y: 5, backgroundColor: "#FFB1A1", zIndex: 100, duration: 0.3 }, 0)
+                  .to(line2, { rotation: -45, y: -5, backgroundColor: "#FFB1A1", zIndex: 100, duration: 0.3 }, 0);
+
+            trigger?.addEventListener('click', () => {
+                if (!isMenuOpen) { menuTl.play(); } else { menuTl.reverse(); }
+                isMenuOpen = !isMenuOpen;
+            });
+
+            links.forEach(link => {
+                link.addEventListener('click', () => {
+                    menuTl.reverse();
+                    isMenuOpen = false;
+                });
+            });
 
 
 
 
 
-
-
-
-
-
-
-
-
-
-<style>
-
-    /* Esconde a barra de rolagem mas mantém a funcionalidade */
-    .no-scrollbar::-webkit-scrollbar {
-        display: none;
-    }
-    .no-scrollbar {
-        -ms-overflow-style: none;
-        scrollbar-width: none;
-    }
-</style>
-
-	
-
-		<footer class=" h-100 py-20 bg-[#FDF8F1] justify-center items-center flex flex-col gap-4  mb:justify-between md:flex-row md:mb-0 md:py-0 md:px-10 h-20 border-t border-zinc-600/30 text-zinc-600 text-xs">
-			<p>INSTAGRAM</p> 	<p>FACEBOOK</p> 	<p>WHATSAPP</p> 	<p>© 2026. SITE DESIGN BY <a href="">Nicollas</a></p>
-			
-		</footer>
-
-
-
-
-
-		<!-- GSAP e ScrollTrigger -->
-		<script>
-
-			import { gsap } from 'gsap';
-			import { ScrollTrigger } from 'gsap/ScrollTrigger';
-			gsap.registerPlugin(ScrollTrigger);
-
-			// Animação Hero
-			gsap.from("#hero-text", { opacity: 0, x: -50, duration: 1.2, ease: "power4.out" });
-
-			// Animação das Flores (Revelam conforme o scroll)
-			gsap.from(".reveal-left", {
-				x: -100,
-				opacity: 0,
-				scrollTrigger: {
-					trigger: ".reveal-left",
-					start: "top 80%",
-					end: "top 40%",
-					scrub: 1
-				}
-			});
-
-			gsap.from(".reveal-right", {
-				x: 100,
-				opacity: 0,
-				scrollTrigger: {
-					trigger: ".reveal-right",
-					start: "top 80%",
-					end: "top 40%",
-					scrub: 1
-				}
-			});
-
-			// Revelação dos cards da galeria
-			gsap.from(".reveal-up", {
-				y: 50,
-				opacity: 1,
-				stagger: 0.2,
-				duration: 1,
-				scrollTrigger: {
-					trigger: ".reveal-up",
-					start: "top 90%"
-				}
-
-				
-			});
-
-			ScrollTrigger.batch(".reveal-img", {
-					onEnter: (batch) => {
-						gsap.from(batch, {
-							opacity: 0,
-							// MUDANÇA 1: Reduzi a distância. Menos caminho para percorrer no mesmo tempo = movimento mais lento.
-							y: 60, // Era 80
-
-							// MUDANÇA 2: Aumentei a duração. O movimento tem mais tempo para acontecer.
-							duration: 1.8, // Era 1.2
-
-							// MUDANÇA 3: Aumentei o intervalo entre cada item. Fica menos "atropelado".
-							stagger: 0.25, // Era 0.15
-
-							// MUDANÇA 4: Mudei a curva física. "expo.out" tem uma desaceleração final muito mais longa e suave que "power4".
-							ease: "expo.out", 
-							
-							overwrite: true
-						});
-					},
-					start: "top 90%",
-				});
-
-				const track = document.getElementById('carousel-track');
-				const nextBtn = document.getElementById('next');
-				const prevBtn = document.getElementById('prev');
-
-				if (track && nextBtn && prevBtn) {
-					nextBtn.addEventListener('click', () => {
-						// Rola para a direita o equivalente a um item
-						track.scrollLeft += track.offsetWidth * 0.8;
-					});
-
-					prevBtn.addEventListener('click', () => {
-						// Rola para a esquerda
-						track.scrollLeft -= track.offsetWidth * 0.8;
-					});
-				}
-
-
-				
-  
-
-  // Efeito de entrada em cascata para os cards
-  ScrollTrigger.batch(".reveal-card", {
-    onEnter: (batch) => {
-      gsap.to(batch, {
-        opacity: 1,
-        y: 0,
-        scale: 1,
-        duration: 1.5,
-        stagger: 0.2,
-        ease: "expo.out",
-        startAt: { y: 50, opacity: 0, scale: 0.95 } // Define o estado inicial aqui
-      });
-    },
-    start: "top 85%",
-  });
-
-
-
-
-
-
-
-
-  		const trigger = document.getElementById('menu-trigger');
-    const overlay = document.getElementById('menu-overlay');
-    const links = document.querySelectorAll('.nav-link');
-    const line1 = document.querySelector('.line-1');
-    const line2 = document.querySelector('.line-2');
-
-    let isMenuOpen = false;
-
-    // Criamos uma Timeline para controlar tudo em sincronia
-    const menuTl = gsap.timeline({ paused: true, defaults: { ease: "expo.inOut", duration: 0.8 } });
-
-    menuTl.to(overlay, { 
-        translateY: 0, 
-        opacity: 1, 
-        pointerEvents: "auto" 
-    })
-    .to(links, { 
-        opacity: 1, 
-        y: 0, 
-        stagger: 0.1, 
-        duration: 0.6 
-    }, "-=0.4")
-    // Animação das linhas do hambúrguer para formar um X
-    .to(line1, { rotation: 45, y: 5, backgroundColor: "#FFB1A1", duration: 0.3 }, 0)
-    .to(line2, { rotation: -45, y: -5, backgroundColor: "#FFB1A1", duration: 0.3 }, 0);
-
-    trigger?.addEventListener('click', () => {
-        if (!isMenuOpen) {
-            menuTl.play();
-        } else {
-            menuTl.reverse();
-        }
-        isMenuOpen = !isMenuOpen;
-    });
-
-    // Fechar ao clicar em um link
-    links.forEach(link => {
-        link.addEventListener('click', () => {
-            menuTl.reverse();
-            isMenuOpen = false;
-        });
-    });
-
-		</script>
-	</body>
+        </script>
+    </body>
 </html>
