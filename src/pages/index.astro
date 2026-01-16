@@ -121,8 +121,9 @@ const mockReviews = [
 
                 <div id="carousel-track" class="flex gap-4 overflow-x-auto snap-x snap-mandatory scroll-smooth no-scrollbar">
                     {[1, 2, 3, 4, 1, 2, 3, 4].map((i) => (
-                        <div class="reveal-img opacity-1 min-w-[85%] md:min-w-[30%] snap-center border border-zinc-800/20 p-2 bg-white/10">
-                            <img src="/cabelo.jpg" class="w-full h-96 object-cover" alt={`Galeria ${i}`}>
+                        <div class="reveal-img h-[45vh] opacity-1  min-w-[85%] md:min-w-[30%] snap-center border border-zinc-800/20 p-2 bg-white/10  items-center flex flex-col ">
+                            <img src="/cabelo.jpg" class="w-full h-[75%] object-cover" alt={`Galeria ${i}`}>
+                            <h2 class="py-4 px-2 italic text-zinc-600">Coloraçao de cabelo</h2>
                         </div>
                     ))}
                 </div>
@@ -161,14 +162,14 @@ const mockReviews = [
                         
                         <div class="space-y-6 text-zinc-400">
                             <div class="flex items-start gap-4">
-                                <div class="text-blue-500 mt-1">
+                                <div class="text-white mt-1">
                                     <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>
                                 </div>
                                 <p class="text-white">Av. Taiacupeba, 298 - Vila Amorim, Suzano - SP, 08610-190<br/>São Paulo - SP, 01310-100</p>
                             </div>
 
                             <div class="flex items-start gap-4">
-                                <div class="text-blue-500 mt-1">
+                                <div class="text-white mt-1">
                                     <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
                                 </div>
                                 <p class="text-white">contato@rosapink.com.br</p>
@@ -204,7 +205,7 @@ const mockReviews = [
                 <a href="https://www.facebook.com/people/Instituto-Rosa-Pink-Hair/100064033303194/"><p class="hover:text-pink-400 cursor-pointer transition-colors">Facebook</p></a>
                 <a href="https://wa.me/5511999673057"><p class="hover:text-pink-400 cursor-pointer transition-colors">Whatsapp</p></a>
             </div>
-            <p>© 2026. SITE DESIGN BY <a href="https://www.linkedin.com/in/nicollas-bergo-calheiros-de-melo-108289266/" class="font-bold underline" target="_blank">Nicollas</a></p>
+            <p class="pr-15 pt-5 md:pt-0 md:pr-20">© 2026. SITE DESIGN BY <a href="https://www.linkedin.com/in/nicollas-bergo-calheiros-de-melo-108289266/" class="font-bold underline" target="_blank">Nicollas</a></p>
         </footer>
 
         <WhatsAppButton />

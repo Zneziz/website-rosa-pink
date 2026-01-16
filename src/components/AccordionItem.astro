@@ -1,0 +1,35 @@
+---
+// AccordionItem.astro
+interface Props {
+  question: string;
+  answer: string;
+}
+
+const { question, answer } = Astro.props;
+---
+
+<div class="border-b border-zinc-600/30 overflow-hidden accordion-item">
+  <button 
+    class="w-full py-6 flex justify-between items-center text-left group accordion-trigger outline-none"
+    aria-expanded="false"
+  >
+    <span class="text-zinc-800 font-serif italic text-lg md:text-xl group-hover:text-[#FFB1A1] transition-colors">
+      {question}
+    </span>
+    
+    <svg 
+      class="w-5 h-5 text-[#FFB1A1] transform transition-transform duration-500 accordion-icon" 
+      fill="none" 
+      viewBox="0 0 24 24" 
+      stroke="currentColor"
+    >
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+    </svg>
+  </button>
+
+  <div class="accordion-content h-0 opacity-0 invisible">
+    <p class="pb-8 text-zinc-600 leading-relaxed max-w-2xl text-sm md:text-base">
+      {answer}
+    </p>
+  </div>
+</div>
