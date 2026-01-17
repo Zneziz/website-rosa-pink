@@ -30,6 +30,28 @@ const mockReviews = [
     photo: "/user3.png" 
   },
 ];
+
+const services = [
+  { 
+    id: "01",
+    title: "Colorometria", 
+    description: "Técnicas avançadas de mechas e tintura com saúde capilar.",
+    image: "/cabelo.jpg" 
+  },
+  { 
+    id: "02",
+    title: "Mega Hair", 
+    description: "Alongamento e volume com fios naturais de alta qualidade.",
+    image: "/fundo.jfif" 
+  },
+  { 
+    id: "03",
+    title: "Micro Mist", 
+    description: "Tratamento capilar inovador para hidratação profunda.",
+    image: "/cabelo.jpg" 
+  }
+];
+
 ---
 
 <html lang="pt-br">
@@ -42,20 +64,20 @@ const mockReviews = [
     
     <body class="bg-[#FFF7EA] font-serif overflow-x-hidden">
 
-        <header class="relative h-[50vh] w-full">
+        <header class="relative h-[41vh] w-full">
             <div class="absolute inset-0 z-0">
                 <img src="/fundo.jfif" class="w-full h-full object-cover" alt="Fundo">
                 <div class="absolute inset-0 bg-black/40 justify-center items-center flex flex-col">
-                    <h1 class="text-white text-2xl md:text-4xl font-serif italic z-[110] absolute top-1/2 ">
+                    <h1 class="text-white text-3xl md:text-5xl uppercasefont-serif italic z-[110]  top-1/2 ">
                         Rosa Pink</h1>
-                        <h3 class="text-white text-2x1 md:text-xl font-serif italic z-[110] absolute top-1/2  mt-8">
+                        <h3 class="text-white text-2x1 md:text-xl uppercase font-serif italic z-[110] absolute top-1/2  mt-8">
                             INSTITUTO DE BELEZA</h3>
                 </div> 
             </div>
 
-            <nav class="fixed top-0 left-0 w-full z-[100] px-8 py-5 flex justify-between items-center border-b border-white/10 bg-zinc-950/90 backdrop-blur-md">
+            <nav class="fixed top-0 left-0 w-full z-[100] px-8 py-3 md:py-2 flex justify-between items-center border-b border-white/10 bg-zinc-950/90 backdrop-blur-md">
                 <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap" rel="stylesheet">
-                <a href="/" ><img src="/logo.png" class="   w-[150px] md:w-[250px]" alt="logo"></a>
+                <a href="/" ><img src="/logo.png" class="   w-[150px] md:w-[200px]" alt="logo"></a>
 
                 <div class="hidden md:flex gap-8 items-center text-zinc-400 text-sm uppercase tracking-widest">
                     <a href="/sobre" class="text-white hover:text-[#FFB1A1] transition-colors">Sobre Nós</a>
@@ -87,28 +109,77 @@ const mockReviews = [
 
                 <div class="relative z-10 max-w-sm mx-auto">
                     <h2 class="text-zinc-800 text-lg uppercase tracking-widest border-b border-zinc-400 inline-block mb-8 pb-1">
-                        Lorem ipsum dolor sit amet
+                        SALÃO DE BELEZA ESPECIALISTA EM COLORIMETRIA E MEGA HAIR OFERECE DIVERSOS SERVIÇOS EM SUZANO
                     </h2>
                     <p class="text-zinc-700 leading-relaxed mb-8 italic text-sm md:text-base">
-                        consectetur adipiscing elit. Proin quis dapibus diam, at pellentesque orci. In quis ante non mi maximus sagittis a nec le.
+                        Com um espaço aconchegante, em Suzano, o salão Rosa Pink oferece diversos procedimentos, como maquiagem, aplicação de cílios fio a fio, sobrancelha com técnica Brow Lamination, entre outros.
                     </p>
-                    <button class="border-2 border-[#888] text-zinc-800 px-10 py-1 font-sans text-xs tracking-tighter hover:bg-[#FFB1A1] hover:text-white transition-all">
-                        BUTOM
-                    </button>
+                    <a href="/sobre"><button class="border-2 border-[#888] text-zinc-800 px-10 py-1 font-serif text-2xl tracking-tighter hover:bg-[#FFB1A1] hover:text-white transition-all">
+                        Sobre nós
+                    </button></a>
                 </div>
             </section>
 
-            <section class="bg-[#FFB1A1] py-10 px-2 w-full md:w-1/2 flex items-center justify-center">
+            <section class="bg-[#FFB1A1] py-10 px-10 w-full md:w-1/2 flex items-center justify-center">
                 <div class="border border-zinc-800 p-1 w-full max-w-md reveal-img">
-                    <img src="/cabelo.jpg" class="w-full h-auto object-cover" alt="Cabelo destaque">
+                    <img src="/cabelo.jpg" class="w-full h-[500px] object-cover" alt="Cabelo destaque">
                 </div>
             </section>
         </div>
 
+        <section class="py-14 bg-white px-6 overflow-hidden">
+            <div class="max-w-7xl mx-auto">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-16 items-start">
+                
+                <div class="space-y-0">
+                    <h2 class="text-[#FFB1A1] uppercase tracking-[0.3em] text-3x1 mb-12">Nossas Especialidades</h2>
+                    
+                    {services.map((service, index) => (
+                    <div 
+                        class="service-item group py-4 md:py-10 border-b border-zinc-300 cursor-pointer transition-all duration-500"
+                        data-index={index}
+                    >
+                        <div class="flex items-start gap-6">
+                        <span class="text-[#FFB1A1] font-sans text-xs mt-2">{service.id}</span>
+                        <div>
+                            <h3 class="text-zinc-800 text-2xl md:text-5xl font-serif italic group-hover:text-[#FFB1A1] transition-colors duration-500">
+                            {service.title}
+                            </h3>
+                            <p class="mt-4 text-zinc-500 max-w-sm opacity-0 h-0 group-hover:opacity-100 group-hover:h-auto transition-all duration-500">
+                            {service.description}
+                            </p>
+                        </div>
+                        </div>
+                    </div>
+                    ))}
+                </div>
+
+                <div class="reveal-img md:block sticky top-32 h-[401px] md:h-[600px] w-full overflow-hidden  border border-zinc-200">
+                    {services.map((service, index) => (
+                    <img 
+                        src={service.image} 
+                        class="service-img absolute inset-0 w-full h-full object-cover opacity-0 scale-110"
+                        data-image-index={index}
+                        alt={service.title}
+                    />
+                    ))}
+                </div>
+
+                </div>
+            </div>
+        </section>
+        <section class="justify-center align-center flex pb-16 bg-white">
+            <a href="/servicos" class="border-2 border-[#888] text-zinc-800 px-8 py-1 text-2xl font-serif italic hover:bg-[#FFB1A1] hover:text-white transition-all">Mais Serviços</a>
+        </section>
+
+
+
+
+
 
         <section class="bg-[#F2D7C2] py-16 overflow-hidden">
             <div class="text-center border-t border-b border-zinc-600/30 py-4 mb-10 mx-6">
-                <span class="text-zinc-800 italic uppercase text-sm tracking-widest">Populares</span>
+                <span class="text-zinc-600 italic uppercase text-3xl  tracking-widest">Produtos Populares</span>
             </div>
 
             <div class="relative group px-6">
@@ -125,13 +196,16 @@ const mockReviews = [
                             <img src="/cabelo.jpg" class="w-full h-[75%] object-cover" alt={`Galeria ${i}`}>
                             <h2 class="pt-2 pb-1 px-2 italic text-zinc-600">Coloraçao de cabelo</h2>
                             <hr class="w-full border-zinc-600/30 mb-4"/>
-                            <h2 class="px-2 italic text-zinc-600">Coloraçao de cabelo</h2>
+                            <a href="https://api.whatsapp.com/send/?phone=5511999673057&text=Olá%21+Gostaria+de+conhecer+seus+produtos!.&type=phone_number&app_absent=0"
+                             target="_blank"><h2 class="px-2 italic text-zinc-600">Contate-nos</h2></a>
                         </div>
                     ))}
                 </div>
             </div>
         </section>
-
+        <section class="justify-center align-center flex pb-16 bg-[#F2D7C2]">
+            <a href="/produtos" class="border-2 border-[#888] text-zinc-800 px-8 py-1 text-2xl font-serif italic hover:bg-[#FFB1A1] hover:text-white transition-all">Mais Produtos</a>
+        </section>
 
         <section class="py-16 bg-[#FFF7EA] px-6">
             <div class="max-w-6xl mx-auto">
@@ -319,7 +393,33 @@ const mockReviews = [
                 });
             });
 
+            const serviceItems = document.querySelectorAll('.service-item');
+            const serviceImages = document.querySelectorAll('.service-img');
 
+            // Definir a primeira imagem como visível logo no início
+            gsap.set(serviceImages[0], { opacity: 1, scale: 1 });
+
+            serviceItems.forEach((item) => {
+                item.addEventListener('mouseenter', () => {
+                const index = item.getAttribute('data-index');
+
+                // 1. Esconde todas as imagens
+                gsap.to(serviceImages, { 
+                    opacity: 0, 
+                    scale: 1.1, 
+                    duration: 0.8, 
+                    ease: "power2.inOut" 
+                });
+
+                // 2. Mostra a imagem correspondente ao hover
+                gsap.to(serviceImages[index], { 
+                    opacity: 1, 
+                    scale: 1, 
+                    duration: 0.8, 
+                    ease: "power2.out" 
+                });
+                });
+            });
 
 
 

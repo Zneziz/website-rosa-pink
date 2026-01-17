@@ -47,7 +47,7 @@ const mockReviews = [
 
             <nav class="fixed top-0 left-0 w-full z-[100] px-6 py-5 flex justify-between items-center border-b border-white/10 bg-zinc-950/90 backdrop-blur-md">
                 <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap" rel="stylesheet">
-                <a href="/" ><img src="/logo.png" class="   w-[150px] md:w-[250px]" alt="logo"></a>
+                <a href="/" ><img src="/logo.png" class="   w-[150px] md:w-[200px]" alt="logo"></a>
 
                 <div class="hidden md:flex gap-8 items-center text-zinc-400 text-sm uppercase tracking-widest">
                     <a href="/sobre" class="text-white hover:text-[#FFB1A1] transition-colors">Sobre Nós</a>
@@ -71,13 +71,10 @@ const mockReviews = [
 
         </header>
 
-
         
-
-
-        <section class="bg-[#F2D7C2] py-16 overflow-hidden">
+        <section class="bg-[#F2D7C2] py-3 overflow-hidden">
             <div class="text-center border-t border-b border-zinc-600/30 py-4 mb-10 mx-6">
-                <span class="text-zinc-800 italic uppercase text-sm tracking-widest">Populares</span>
+                <span class="text-zinc-600 italic uppercase text-3xl  tracking-widest">Produtos Populares</span>
             </div>
 
             <div class="relative group px-6">
@@ -89,31 +86,22 @@ const mockReviews = [
                 </button>
 
                 <div id="carousel-track" class="flex gap-4 overflow-x-auto snap-x snap-mandatory scroll-smooth no-scrollbar">
-                    
-                        <div class="reveal-img opacity-1 min-w-[85%] md:min-w-[30%] snap-center border border-zinc-800/20 p-2 bg-white/10">
-                            <img src="/cabelo.jpg" class="w-full h-96 object-cover" >
+                    {[1, 2, 3, 4, 1, 2, 3, 4].map((i) => (
+                        <div class="reveal-up h-[45vh] opacity-1  min-w-[85%] md:min-w-[30%] snap-center border border-zinc-800/20 p-2 bg-white/10  items-center flex flex-col ">
+                            <img src="/cabelo.jpg" class="w-full h-[75%] object-cover" alt={`Galeria ${i}`}>
+                            <h2 class="pt-2 pb-1 px-2 italic text-zinc-600">Coloraçao de cabelo</h2>
+                            <hr class="w-full border-zinc-600/30 mb-4"/>
+                            <a href="https://api.whatsapp.com/send/?phone=5511999673057&text=Olá%21+Gostaria+de+conhecer+seus+produtos!.&type=phone_number&app_absent=0"
+                             target="_blank"><h2 class="px-2 italic text-zinc-600">Contate-nos</h2></a>
                         </div>
-                         <div class="reveal-img opacity-1 min-w-[85%] md:min-w-[30%] snap-center border border-zinc-800/20 p-2 bg-white/10">
-                            <img src="/cabelo.jpg" class="w-full h-96 object-cover" >
-                        </div>
-                         <div class="reveal-img opacity-1 min-w-[85%] md:min-w-[30%] snap-center border border-zinc-800/20 p-2 bg-white/10">
-                            <img src="/cabelo.jpg" class="w-full h-96 object-cover" >
-                        </div>
-                         <div class="reveal-img opacity-1 min-w-[85%] md:min-w-[30%] snap-center border border-zinc-800/20 p-2 bg-white/10">
-                            <img src="/cabelo.jpg" class="w-full h-96 object-cover" >
-                        </div>
-                        <div class="reveal-img opacity-1 min-w-[85%] md:min-w-[30%] snap-center border border-zinc-800/20 p-2 bg-white/10">
-                            <img src="/cabelo.jpg" class="w-full h-96 object-cover" >
-                        </div>
-                    
+                    ))}
                 </div>
             </div>
         </section>
 
-        
-        <section class="bg-[#F2D7C2] py-16 overflow-hidden">
+        <section class="bg-[#FFF7EA] py-3 overflow-hidden">
             <div class="text-center border-t border-b border-zinc-600/30 py-4 mb-10 mx-6">
-                <span class="text-zinc-800 italic uppercase text-sm tracking-widest">Populares</span>
+                <span class="text-zinc-600 italic uppercase text-3xl  tracking-widest">Produtos Populares</span>
             </div>
 
             <div class="relative group px-6">
@@ -125,31 +113,22 @@ const mockReviews = [
                 </button>
 
                 <div id="carousel-track" class="flex gap-4 overflow-x-auto snap-x snap-mandatory scroll-smooth no-scrollbar">
-                    
-                        <div class="reveal-img opacity-1 min-w-[85%] md:min-w-[30%] snap-center border border-zinc-800/20 p-2 bg-white/10">
-                            <img src="/cabelo.jpg" class="w-full h-96 object-cover" >
+                    {[1, 2, 3, 4, 1, 2, 3, 4].map((i) => (
+                        <div class="reveal-up h-[45vh] opacity-1  min-w-[85%] md:min-w-[30%] snap-center border border-zinc-800/20 p-2 bg-white/10  items-center flex flex-col ">
+                            <img src="/cabelo.jpg" class="w-full h-[75%] object-cover" alt={`Galeria ${i}`}>
+                            <h2 class="pt-2 pb-1 px-2 italic text-zinc-600">Coloraçao de cabelo</h2>
+                            <hr class="w-full border-zinc-600/30 mb-4"/>
+                            <a href="https://api.whatsapp.com/send/?phone=5511999673057&text=Olá%21+Gostaria+de+conhecer+seus+produtos!.&type=phone_number&app_absent=0"
+                             target="_blank"><h2 class="px-2 italic text-zinc-600">Contate-nos</h2></a>
                         </div>
-                         <div class="reveal-img opacity-1 min-w-[85%] md:min-w-[30%] snap-center border border-zinc-800/20 p-2 bg-white/10">
-                            <img src="/cabelo.jpg" class="w-full h-96 object-cover" >
-                        </div>
-                         <div class="reveal-img opacity-1 min-w-[85%] md:min-w-[30%] snap-center border border-zinc-800/20 p-2 bg-white/10">
-                            <img src="/cabelo.jpg" class="w-full h-96 object-cover" >
-                        </div>
-                         <div class="reveal-img opacity-1 min-w-[85%] md:min-w-[30%] snap-center border border-zinc-800/20 p-2 bg-white/10">
-                            <img src="/cabelo.jpg" class="w-full h-96 object-cover" >
-                        </div>
-                        <div class="reveal-img opacity-1 min-w-[85%] md:min-w-[30%] snap-center border border-zinc-800/20 p-2 bg-white/10">
-                            <img src="/cabelo.jpg" class="w-full h-96 object-cover" >
-                        </div>
-                    
+                    ))}
                 </div>
             </div>
         </section>
 
-        
-        <section class="bg-[#F2D7C2] py-16 overflow-hidden">
+        <section class="bg-[#FFB1A1] py-3 overflow-hidden">
             <div class="text-center border-t border-b border-zinc-600/30 py-4 mb-10 mx-6">
-                <span class="text-zinc-800 italic uppercase text-sm tracking-widest">Populares</span>
+                <span class="text-zinc-600 italic uppercase text-3xl  tracking-widest">Produtos Populares</span>
             </div>
 
             <div class="relative group px-6">
@@ -161,29 +140,22 @@ const mockReviews = [
                 </button>
 
                 <div id="carousel-track" class="flex gap-4 overflow-x-auto snap-x snap-mandatory scroll-smooth no-scrollbar">
-                    
-                        <div class="reveal-img opacity-1 min-w-[85%] md:min-w-[30%] snap-center border border-zinc-800/20 p-2 bg-white/10">
-                            <img src="/cabelo.jpg" class="w-full h-96 object-cover" >
+                    {[1, 2, 3, 4, 1, 2, 3, 4].map((i) => (
+                        <div class="reveal-up h-[45vh] opacity-1  min-w-[85%] md:min-w-[30%] snap-center border border-zinc-800/20 p-2 bg-white/10  items-center flex flex-col ">
+                            <img src="/cabelo.jpg" class="w-full h-[75%] object-cover" alt={`Galeria ${i}`}>
+                            <h2 class="pt-2 pb-1 px-2 italic text-zinc-600">Coloraçao de cabelo</h2>
+                            <hr class="w-full border-zinc-600/30 mb-4"/>
+                            <a href="https://api.whatsapp.com/send/?phone=5511999673057&text=Olá%21+Gostaria+de+conhecer+seus+produtos!.&type=phone_number&app_absent=0"
+                             target="_blank"><h2 class="px-2 italic text-zinc-600">Contate-nos</h2></a>
                         </div>
-                         <div class="reveal-img opacity-1 min-w-[85%] md:min-w-[30%] snap-center border border-zinc-800/20 p-2 bg-white/10">
-                            <img src="/cabelo.jpg" class="w-full h-96 object-cover" >
-                        </div>
-                         <div class="reveal-img opacity-1 min-w-[85%] md:min-w-[30%] snap-center border border-zinc-800/20 p-2 bg-white/10">
-                            <img src="/cabelo.jpg" class="w-full h-96 object-cover" >
-                        </div>
-                         <div class="reveal-img opacity-1 min-w-[85%] md:min-w-[30%] snap-center border border-zinc-800/20 p-2 bg-white/10">
-                            <img src="/cabelo.jpg" class="w-full h-96 object-cover" >
-                        </div>
-                        <div class="reveal-img opacity-1 min-w-[85%] md:min-w-[30%] snap-center border border-zinc-800/20 p-2 bg-white/10">
-                            <img src="/cabelo.jpg" class="w-full h-96 object-cover" >
-                        </div>
-                    
+                    ))}
                 </div>
             </div>
         </section>
+        
+            
 
-
-
+        
         
 
         
