@@ -11,39 +11,48 @@ import AccordionItem from '../components/AccordionItem.astro';
 const faqs = [
   {
     question: "Colorimetria e Cabelos Loiros",
-    answer: "Especialidade da proprietária Luana Bergo, focada em técnicas avançadas de coloração e descoloração."
+    answer: "Especialidade da proprietária Luana Bergo, focada em técnicas avançadas de coloração e descoloração.",
+    img: ""
   },
   {
     question: "Mega Hair com Fita Adesiva",
-    answer: "Serviço de alongamento capilar que utiliza técnica de fita adesiva própria da marca para um acabamento natural."
+    answer: "Serviço de alongamento capilar que utiliza técnica de fita adesiva própria da marca para um acabamento natural.",
+    img: ""
   },
   {
     question: "Tecnologia Micro Mist",
-    answer: "Tratamento capilar que utiliza vibração ultrassônica e resfriamento para levar ativos ao CMC e selar as cutículas."
+    answer: "Tratamento capilar que utiliza vibração ultrassônica e resfriamento para levar ativos ao CMC e selar as cutículas.",
+    img: ""
   },
   {
     question: "Brow Lamination",
-    answer: "Técnica moderna de design de sobrancelhas que promove alinhamento e volume aos fios."
+    answer: "Técnica moderna de design de sobrancelhas que promove alinhamento e volume aos fios.",
+    img: ""
   },
   {
     question: "Extensão de Cílios Fio a Fio",
-    answer: "Procedimento de aplicação minuciosa para realce do olhar com resultado natural."
+    answer: "Procedimento de aplicação minuciosa para realce do olhar com resultado natural.",
+    img: ""
   },
   {
     question: "Procedimentos Estéticos Injetáveis",
-    answer: "Serviços especializados que incluem aplicação de toxina botulínica e preenchimento labial."
+    answer: "Serviços especializados que incluem aplicação de toxina botulínica e preenchimento labial.",
+    img: ""
   },
   {
     question: "Peeling",
-    answer: "Tratamento estético voltado para a renovação celular e melhoria da textura da pele."
+    answer: "Tratamento estético voltado para a renovação celular e melhoria da textura da pele.",
+    img: ""
   },
   {
     question: "Manicure, Pedicure e Podologia",
-    answer: "Serviços tradicionais de cuidados com as mãos e pés, incluindo tratamentos podológicos especializados."
+    answer: "Serviços tradicionais de cuidados com as mãos e pés, incluindo tratamentos podológicos especializados.",
+    img: ""
   },
   {
     question: "Maquiagem e Penteados",
-    answer: "Serviços de beleza voltados para eventos e produções sociais realizados em espaço aconchegante."
+    answer: "Serviços de beleza voltados para eventos e produções sociais realizados em espaço aconchegante.", 
+    img: ""
   }
 ];
 
@@ -111,14 +120,15 @@ const faqs = [
 
         
 
-        <footer class="py-20 bg-[#FDF8F1] justify-center items-center flex flex-col gap-4 md:justify-between md:flex-row md:px-10 h-20 border-t border-zinc-600/30 text-zinc-600 text-xs uppercase tracking-widest">
+       <footer class="py-20 bg-[#FDF8F1] justify-center items-center flex flex-col gap-4 md:justify-between md:flex-row md:px-10 h-20 border-t border-zinc-600/30 text-zinc-600 text-xs uppercase tracking-widest">
             <div class="flex gap-6">
-                <a href="https://www.instagram.com/rosapinkhair551/"><p class="hover:text-pink-400 cursor-pointer transition-colors">Instagram</p></a>
-                <a href="https://www.facebook.com/people/Instituto-Rosa-Pink-Hair/100064033303194/"><p class="hover:text-pink-400 cursor-pointer transition-colors">Facebook</p></a>
-                <a href="https://wa.me/5511999673057"><p class="hover:text-pink-400 cursor-pointer transition-colors">Whatsapp</p></a>
+                <a href="https://www.instagram.com/rosapinkhair551/"><p class="hover:text-[#FFB1A1] cursor-pointer transition-colors">Instagram</p></a>
+                <a href="https://www.facebook.com/people/Instituto-Rosa-Pink-Hair/100064033303194/"><p class="hover:text-[#FFB1A1] cursor-pointer transition-colors">Facebook</p></a>
+                <a href="https://wa.me/5511999673057"><p class="hover:text-[#FFB1A1] cursor-pointer transition-colors">Whatsapp</p></a>
             </div>
-            <p>© 2026. SITE DESIGN BY <a href="https://www.linkedin.com/in/nicollas-bergo-calheiros-de-melo-108289266/" class="font-bold underline" target="_blank">Nicollas</a></p>
+            <p class="pr-15 pt-5 md:pt-0 md:pr-20">© 2026. SITE DESIGN BY <a href="https://www.linkedin.com/in/nicollas-bergo-calheiros-de-melo-108289266/" class="font-bold underline" target="_blank">Nicollas</a></p>
         </footer>
+
 
         <WhatsAppButton />
 

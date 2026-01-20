@@ -3,6 +3,7 @@
 interface Props {
   question: string;
   answer: string;
+  img: string;
 }
 
 const { question, answer } = Astro.props;
@@ -27,9 +28,10 @@ const { question, answer } = Astro.props;
     </svg>
   </button>
 
-  <div class="accordion-content h-0 opacity-0 invisible">
+  <div class="accordion-content h-0 opacity-0 invisible justify-center flex flex-col md:flex-row ">
     <p class="pb-8 text-zinc-600 leading-relaxed max-w-2xl text-sm md:text-base">
       {answer}
     </p>
+      <img src="{img}" alt="" class="h-[150px] md:h-[220px] w-[120px] md:w-[200px] m-2 ">
   </div>
 </div>

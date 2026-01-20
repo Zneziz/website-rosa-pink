@@ -34,21 +34,21 @@ const mockReviews = [
 const services = [
   { 
     id: "01",
-    title: "Colorometria", 
+    title: "Colorimetria", 
     description: "Técnicas avançadas de mechas e tintura com saúde capilar.",
-    image: "/cabelo.jpg" 
+    media: "/colo.png" 
   },
   { 
     id: "02",
     title: "Mega Hair", 
     description: "Alongamento e volume com fios naturais de alta qualidade.",
-    image: "/fundo.jfif" 
+    media: "/megaHair.png" 
   },
   { 
     id: "03",
     title: "Micro Mist", 
     description: "Tratamento capilar inovador para hidratação profunda.",
-    image: "/cabelo.jpg" 
+    media: "/MicroMist.mp4" 
   }
 ];
 
@@ -67,11 +67,9 @@ const services = [
         <header class="relative h-[41vh] w-full">
             <div class="absolute inset-0 z-0">
                 <img src="/fundo.jfif" class="w-full h-full object-cover" alt="Fundo">
-                <div class="absolute inset-0 bg-black/40 justify-center items-center flex flex-col">
-                    <h1 class="text-white text-3xl md:text-5xl uppercasefont-serif italic z-[110]  top-1/2 ">
-                        Rosa Pink</h1>
-                        <h3 class="text-white text-2x1 md:text-xl uppercase font-serif italic z-[110] absolute top-1/2  mt-8">
-                            INSTITUTO DE BELEZA</h3>
+                <div class="absolute inset-0 bg-black/50 flex flex-col justify-center items-center text-center px-4">
+                    <h1 class="text-white text-4xl md:text-6xl uppercase italic font-serif mb-2 reveal-up">Rosa Pink</h1>
+                    <h3 class="text-white text-lg md:text-xl uppercase tracking-[0.2em] font-serif italic opacity-80 reveal-up">Instituto de Beleza</h3>
                 </div> 
             </div>
 
@@ -114,9 +112,9 @@ const services = [
                     <p class="text-zinc-700 leading-relaxed mb-8 italic text-sm md:text-base">
                         Com um espaço aconchegante, em Suzano, o salão Rosa Pink oferece diversos procedimentos, como maquiagem, aplicação de cílios fio a fio, sobrancelha com técnica Brow Lamination, entre outros.
                     </p>
-                    <a href="/sobre"><button class="border-2 border-[#888] text-zinc-800 px-10 py-1 font-serif text-2xl tracking-tighter hover:bg-[#FFB1A1] hover:text-white transition-all">
-                        Sobre nós
-                    </button></a>
+                    <a href="/sobre" class="border-2 border-zinc-400 text-zinc-800 px-10 py-3 font-serif text-xl italic hover:bg-[#FFB1A1] hover:text-white hover:border-[#FFB1A1] transition-all duration-500">
+                        Nossa História
+                    </a>
                 </div>
             </section>
 
@@ -127,49 +125,45 @@ const services = [
             </section>
         </div>
 
-        <section class="py-14 bg-white px-6 overflow-hidden">
+        <section class="pb-0 pt-24 bg-white px-6 overflow-hidden">
             <div class="max-w-7xl mx-auto">
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-16 items-start">
-                
-                <div class="space-y-0">
-                    <h2 class="text-[#FFB1A1] uppercase tracking-[0.3em] text-3x1 mb-12">Nossas Especialidades</h2>
-                    
-                    {services.map((service, index) => (
-                    <div 
-                        class="service-item group py-4 md:py-10 border-b border-zinc-300 cursor-pointer transition-all duration-500"
-                        data-index={index}
-                    >
-                        <div class="flex items-start gap-6">
-                        <span class="text-[#FFB1A1] font-sans text-xs mt-2">{service.id}</span>
-                        <div>
-                            <h3 class="text-zinc-800 text-2xl md:text-5xl font-serif italic group-hover:text-[#FFB1A1] transition-colors duration-500">
-                            {service.title}
-                            </h3>
-                            <p class="mt-4 text-zinc-500 max-w-sm opacity-0 h-0 group-hover:opacity-100 group-hover:h-auto transition-all duration-500">
-                            {service.description}
-                            </p>
-                        </div>
-                        </div>
+                    <div class="space-y-0">
+                        <h2 class="text-[#FFB1A1] uppercase tracking-[0.3em] text-sm mb-12 border-l-4 border-[#FFB1A1] pl-4">Nossas Especialidades</h2>
+                        {services.map((service, index) => (
+                            <div class="service-item group py-8 border-b border-zinc-200 cursor-pointer transition-all duration-500" data-index={index}>
+                                <div class="flex items-start gap-6">
+                                    <span class="text-[#FFB1A1] font-sans text-xs mt-2">{service.id}</span>
+                                    <div>
+                                        <h3 class="text-zinc-800 text-3xl md:text-5xl font-serif italic group-hover:text-[#FFB1A1] transition-colors duration-500">{service.title}</h3>
+                                        <p class="mt-4 text-zinc-500 max-w-sm opacity-0 h-0 group-hover:opacity-100 group-hover:h-auto transition-all duration-500">{service.description}</p>
+                                    </div>
+                                </div>
+                            </div>
+                        ))}
+                        
                     </div>
-                    ))}
-                </div>
 
-                <div class="reveal-img md:block sticky top-32 h-[401px] md:h-[600px] w-full overflow-hidden  border border-zinc-200">
-                    {services.map((service, index) => (
-                    <img 
-                        src={service.image} 
-                        class="service-img absolute inset-0 w-full h-full object-cover opacity-0 scale-110"
-                        data-image-index={index}
-                        alt={service.title}
-                    />
-                    ))}
-                </div>
-
+                    <div class=" md:block sticky top-32 h-[600px] w-full overflow-hidden border border-zinc-100 rounded-lg bg-zinc-50">
+                        {services.map((service, index) => (
+                            <div class="service-media absolute inset-0 w-full h-full opacity-0 scale-105" data-media-index={index}>
+                                {service.media.endsWith('.mp4') ? (
+                                    <video src={service.media} autoplay muted loop playsinline class="w-full h-full object-cover" />
+                                ) : (
+                                    <img src={service.media} class="w-full h-full object-cover" alt={service.title} />
+                                )}
+                            </div>
+                        ))}
+                    </div>
                 </div>
             </div>
         </section>
-        <section class="justify-center align-center flex pb-16 bg-white">
-            <a href="/servicos" class="border-2 border-[#888] text-zinc-800 px-8 py-1 text-2xl font-serif italic hover:bg-[#FFB1A1] hover:text-white transition-all">Mais Serviços</a>
+        <section class="bg-white justify-center align-middle px-6 pt-2 pb-12">
+            
+                    <a href="/servicos" class="border-2 border-zinc-400 text-zinc-800 px-10 py-3 font-serif text-xl italic hover:bg-[#FFB1A1] hover:text-white hover:border-[#FFB1A1] transition-all duration-500">
+                        Ver todos os serviços
+                    </a>
+                       
         </section>
 
 
@@ -177,35 +171,38 @@ const services = [
 
 
 
-        <section class="bg-[#F2D7C2] py-16 overflow-hidden">
-            <div class="text-center border-t border-b border-zinc-600/30 py-4 mb-10 mx-6">
-                <span class="text-zinc-600 italic uppercase text-3xl  tracking-widest">Produtos Populares</span>
+        <section class="bg-[#F2D7C2] pt-20 pb-0 overflow-hidden">
+            <div class="text-center border-t border-b border-zinc-600/20 py-6 mb-12 mx-6">
+                <span class="text-zinc-700 italic uppercase text-2xl tracking-[0.2em]">Produtos Selecionados</span>
             </div>
 
-            <div class="relative group px-6">
-                <button id="prev" class="absolute left-10 top-1/2 -translate-y-1/2 z-30 bg-white/20 hover:bg-white/50 p-3 rounded-full backdrop-blur-sm hidden md:block transition-all">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m15 18-6-6 6-6"/></svg>
+            <div class="relative px-6">
+                <button id="prev" class="absolute left-8 top-1/2 -translate-y-1/2 z-30 bg-white/40 hover:bg-white p-4 rounded-full backdrop-blur-md hidden md:block transition-all shadow-lg">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m15 18-6-6 6-6"/></svg>
                 </button>
-                <button id="next" class="absolute right-10 top-1/2 -translate-y-1/2 z-30 bg-white/20 hover:bg-white/50 p-3 rounded-full backdrop-blur-sm hidden md:block transition-all">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></svg>
+                <button id="next" class="absolute right-8 top-1/2 -translate-y-1/2 z-30 bg-white/40 hover:bg-white p-4 rounded-full backdrop-blur-md hidden md:block transition-all shadow-lg">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m9 18 6-6-6-6"/></svg>
                 </button>
 
-                <div id="carousel-track" class="flex gap-4 overflow-x-auto snap-x snap-mandatory scroll-smooth no-scrollbar">
-                    {[1, 2, 3, 4, 1, 2, 3, 4].map((i) => (
-                        <div class="reveal-up h-[45vh] opacity-1  min-w-[85%] md:min-w-[30%] snap-center border border-zinc-800/20 p-2 bg-white/10  items-center flex flex-col ">
-                            <img src="/cabelo.jpg" class="w-full h-[75%] object-cover" alt={`Galeria ${i}`}>
-                            <h2 class="pt-2 pb-1 px-2 italic text-zinc-600">Coloraçao de cabelo</h2>
-                            <hr class="w-full border-zinc-600/30 mb-4"/>
-                            <a href="https://api.whatsapp.com/send/?phone=5511999673057&text=Olá%21+Gostaria+de+conhecer+seus+produtos!.&type=phone_number&app_absent=0"
-                             target="_blank"><h2 class="px-2 italic text-zinc-600">Contate-nos</h2></a>
+                <div id="carousel-track" class="flex gap-6 overflow-x-auto snap-x snap-mandatory scroll-smooth no-scrollbar pb-8">
+                    {[1, 2, 3, 4, 5].map((i) => (
+                        <div class="reveal-up min-w-[85%] md:min-w-[30%] snap-center border border-zinc-800/10 p-4 bg-white/20 backdrop-blur-sm shadow-sm flex flex-col items-center group">
+                            <div class="overflow-hidden w-full h-[300px] mb-4">
+                                <img src="/produto.jfif" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" alt="Produto">
+                            </div>
+                            <h2 class="text-zinc-800 font-serif italic text-xl mb-1">Coloração Premium</h2>
+                            <hr class="w-16 border-[#FFB1A1] mb-4"/>
+                            <a href="https://wa.me/5511999673057" target="_blank" class="text-sm uppercase tracking-widest text-zinc-600 hover:text-[#FFB1A1] transition-colors">Consultar Valor</a>
                         </div>
                     ))}
                 </div>
             </div>
         </section>
+
         <section class="justify-center align-center flex pb-16 bg-[#F2D7C2]">
-            <a href="/produtos" class="border-2 border-[#888] text-zinc-800 px-8 py-1 text-2xl font-serif italic hover:bg-[#FFB1A1] hover:text-white transition-all">Mais Produtos</a>
-        </section>
+                    <a href="/produtos" class="border-2 border-zinc-400 text-zinc-800 px-10 py-3 font-serif text-xl italic hover:bg-[#FFB1A1] hover:text-white hover:border-[#FFB1A1] transition-all duration-500">
+                        Ver todos os produtos
+                    </a>        </section>
 
         <section class="py-16 bg-[#FFF7EA] px-6">
             <div class="max-w-6xl mx-auto">
@@ -227,6 +224,58 @@ const services = [
                 </div>
             </div>
         </section>
+
+        
+
+<section class="bg-white py-12">
+    
+    <div class="w-full text-center mb-10">
+        <h1 class="text-[#FFB1A1] text-4xl font-serif italic">Nos siga nas redes sociais!</h1>
+    </div>
+
+    <div class="flex justify-center items-center gap-12">
+        
+        <a 
+            href="https://www.instagram.com/rosapinkhair551/" 
+            target="_blank" 
+            class="group flex items-center gap-3 transition-transform duration-300 hover:-translate-y-1"
+        >
+            <svg 
+                xmlns="http://www.w3.org/2000/svg" 
+                viewBox="0 0 24 24" 
+                class="w-8 h-8 fill-zinc-600 group-hover:fill-[#FFB1A1] transition-colors duration-300"
+            >
+                <path d="M7.8,2H16.2C19.4,2 22,4.6 22,7.8V16.2A5.8,5.8 0 0,1 16.2,22H7.8C4.6,22 2,19.4 2,16.2V7.8A5.8,5.8 0 0,1 7.8,2M7.6,4A3.6,3.6 0 0,0 4,7.6V16.4C4,18.39 5.61,20 7.6,20H16.4A3.6,3.6 0 0,0 20,16.4V7.6C20,5.61 18.39,4 16.4,4H7.6M17.25,5.5A1.25,1.25 0 0,1 18.5,6.75A1.25,1.25 0 0,1 17.25,8A1.25,1.25 0 0,1 16,6.75A1.25,1.25 0 0,1 17.25,5.5M12,7A5,5 0 0,1 17,12A5,5 0 0,1 12,17A5,5 0 0,1 7,12A5,5 0 0,1 12,7M12,9A3,3 0 0,0 9,12A3,3 0 0,0 12,15A3,3 0 0,0 15,12A3,3 0 0,0 12,9Z" />
+            </svg>
+            <h2 class="text-zinc-600 group-hover:text-[#FFB1A1] transition-colors italic font-serif text-2xl">
+                Instagram
+            </h2>
+        </a>
+
+        <a 
+            href="https://www.facebook.com/people/Instituto-Rosa-Pink-Hair/100064033303194/" 
+            target="_blank" 
+            class="group flex items-center gap-3 transition-transform duration-300 hover:-translate-y-1"
+        >
+            <svg 
+                xmlns="http://www.w3.org/2000/svg" 
+                viewBox="0 0 24 24" 
+                class="w-8 h-8 fill-zinc-600 group-hover:fill-[#FFB1A1] transition-colors duration-300"
+            >
+                <path d="M12 2.04C6.5 2.04 2 6.53 2 12.06C2 17.06 5.66 21.21 10.44 21.96V14.96H7.9V12.06H10.44V9.85C10.44 7.34 11.93 5.96 14.22 5.96C15.31 5.96 16.45 6.15 16.45 6.15V8.62H15.19C13.95 8.62 13.56 9.39 13.56 10.18V12.06H16.34L15.89 14.96H13.56V21.96A10 10 0 0 0 22 12.06C22 6.53 17.5 2.04 12 2.04Z" />
+            </svg>
+            <h2 class="text-zinc-600 group-hover:text-[#FFB1A1] transition-colors italic font-serif text-2xl">
+                Facebook
+            </h2>
+        </a>
+
+    </div>
+</section>
+
+        
+        
+
+
 
 
         <section class="py-24 bg-[#FFB1A1] px-6 overflow-hidden">
@@ -277,9 +326,9 @@ const services = [
 
         <footer class="py-20 bg-[#FDF8F1] justify-center items-center flex flex-col gap-4 md:justify-between md:flex-row md:px-10 h-20 border-t border-zinc-600/30 text-zinc-600 text-xs uppercase tracking-widest">
             <div class="flex gap-6">
-                <a href="https://www.instagram.com/rosapinkhair551/"><p class="hover:text-pink-400 cursor-pointer transition-colors">Instagram</p></a>
-                <a href="https://www.facebook.com/people/Instituto-Rosa-Pink-Hair/100064033303194/"><p class="hover:text-pink-400 cursor-pointer transition-colors">Facebook</p></a>
-                <a href="https://wa.me/5511999673057"><p class="hover:text-pink-400 cursor-pointer transition-colors">Whatsapp</p></a>
+                <a href="https://www.instagram.com/rosapinkhair551/"><p class="hover:text-[#FFB1A1] cursor-pointer transition-colors">Instagram</p></a>
+                <a href="https://www.facebook.com/people/Instituto-Rosa-Pink-Hair/100064033303194/"><p class="hover:text-[#FFB1A1] cursor-pointer transition-colors">Facebook</p></a>
+                <a href="https://wa.me/5511999673057"><p class="hover:text-[#FFB1A1] cursor-pointer transition-colors">Whatsapp</p></a>
             </div>
             <p class="pr-15 pt-5 md:pt-0 md:pr-20">© 2026. SITE DESIGN BY <a href="https://www.linkedin.com/in/nicollas-bergo-calheiros-de-melo-108289266/" class="font-bold underline" target="_blank">Nicollas</a></p>
         </footer>
@@ -393,33 +442,19 @@ const services = [
                 });
             });
 
-            const serviceItems = document.querySelectorAll('.service-item');
-            const serviceImages = document.querySelectorAll('.service-img');
+             // Lógica da Galeria de Especialidades (Hover)
+             const serviceItems = document.querySelectorAll('.service-item');
+             const mediaContainers = document.querySelectorAll('.service-media');
 
-            // Definir a primeira imagem como visível logo no início
-            gsap.set(serviceImages[0], { opacity: 1, scale: 1 });
+                gsap.set(mediaContainers[0], { opacity: 1, scale: 1 });
 
-            serviceItems.forEach((item) => {
-                item.addEventListener('mouseenter', () => {
-                const index = item.getAttribute('data-index');
-
-                // 1. Esconde todas as imagens
-                gsap.to(serviceImages, { 
-                    opacity: 0, 
-                    scale: 1.1, 
-                    duration: 0.8, 
-                    ease: "power2.inOut" 
+                serviceItems.forEach((item) => {
+                    item.addEventListener('mouseenter', () => {
+                        const index = item.getAttribute('data-index');
+                        gsap.to(mediaContainers, { opacity: 0, scale: 1.05, duration: 0.6, ease: "power2.inOut" });
+                        gsap.to(mediaContainers[index], { opacity: 1, scale: 1, duration: 0.6, ease: "power2.out" });
+                    });
                 });
-
-                // 2. Mostra a imagem correspondente ao hover
-                gsap.to(serviceImages[index], { 
-                    opacity: 1, 
-                    scale: 1, 
-                    duration: 0.8, 
-                    ease: "power2.out" 
-                });
-                });
-            });
 
 
 
