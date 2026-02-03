@@ -10,7 +10,7 @@ interface Props {
 const { question, answer, img } = Astro.props;
 ---
 
-<div class="border-b border-zinc-600/30 overflow-hidden accordion-item">
+<div class="border-b border-zinc-600/30 overflow-hidden accordion-item ">
   <button 
     class="w-full py-6 flex justify-between items-center text-left group accordion-trigger outline-none"
     aria-expanded="false"
@@ -29,7 +29,7 @@ const { question, answer, img } = Astro.props;
     </svg>
   </button>
 
-  <div class="accordion-content h-0 opacity-0 invisible flex flex-col md:flex-row gap-4">
+  <div class="accordion-content h-0 opacity-0 invisible flex flex-col md:flex-row gap-4 ">
     <div class="flex-1">
         <p class="pb-8 text-zinc-600 leading-relaxed text-sm md:text-base">
         {answer}
@@ -37,11 +37,11 @@ const { question, answer, img } = Astro.props;
     </div>
 
     {img && img !== "" && (
-      <div class="pb-8 flex-shrink-0">
+      <div class="pb-8 pl-[25%] md:pl-0 flex-shrink-0">
         <img 
             src={img.startsWith('/') ? img : `/${img}`} 
             alt={question} 
-            class="h-[150px] md:h-[180px] w-[120px] md:w-[150px] object-cover rounded-lg border border-zinc-200"
+            class="h-[200px] md:h-[250px] w-[160px] md:w-[180px]   border border-zinc-600"
         >
       </div>
     )}
