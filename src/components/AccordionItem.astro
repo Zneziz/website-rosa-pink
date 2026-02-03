@@ -37,11 +37,11 @@ const { question, answer, img } = Astro.props;
     </div>
 
     {img && img !== "" && (
-      <div class="pb-8 pl-[25%] md:pl-0 flex-shrink-0">
+      <div class="pb-8 px-5 md:pl-0 flex-shrink-0">
         <img 
             src={img.startsWith('/') ? img : `/${img}`} 
             alt={question} 
-            class="h-[200px] md:h-[250px] w-[160px] md:w-[180px]   border border-zinc-600"
+            class="h-[380px]  w-[290px]   border border-zinc-600"
         >
       </div>
     )}
