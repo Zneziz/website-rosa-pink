@@ -42,10 +42,16 @@ const mockReviews = [
     
     <body class="bg-[#FFF7EA] font-serif overflow-x-hidden">
 
-        <header class="relative h-[100vh] w-full">
-            
+        <header class="relative h-[30vh] w-full">
+            <div class="absolute inset-0 z-0">
+                <img src="/fundo.jfif" class="w-full h-full object-cover" alt="Fundo">
+                <div class="absolute inset-0 bg-black/50 flex flex-col justify-center items-center text-center px-4">
+                    <h1 class="text-white text-4xl md:text-6xl uppercase italic font-serif mb-2 reveal-up">Rosa Pink</h1>
+                    <h3 class="text-white text-lg md:text-xl uppercase tracking-[0.2em] font-serif italic opacity-80 reveal-up">Instituto de Beleza</h3>
+                </div> 
+            </div>
 
-            <nav class="fixed top-0 left-0 w-full z-[100] px-6 py-5 flex justify-between items-center border-b border-white/10 bg-zinc-950/90 backdrop-blur-md">
+            <nav class="fixed top-0 left-0 w-full z-[100] px-8 py-3 md:py-2 flex justify-between items-center border-b border-white/10 bg-zinc-950/90 backdrop-blur-md">
                 <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap" rel="stylesheet">
                 <a href="/" ><img src="/logo.png" class="   w-[150px] md:w-[200px]" alt="logo"></a>
 
@@ -69,17 +75,53 @@ const mockReviews = [
                 </div>
             </div>
 
-            <section class="flex flex-col justify-center items-center h-full text-center px-6" id="hero-text">
-                    <h1 class="text-4xl md:text-6xl lg:text-7xl font-serif italic text-black mb-4">Sobre Nós</h1>
-                    <p class="text-black text-lg md:text-xl lg:text-2xl max-w-3xl">Conheça a história e os valores que tornam o Rosa Pink Hair um salão de beleza único.</p>
-                    <p class="text-black  max-w-3xl">Com um espaço aconchegante, em Suzano, o salão Rosa Pink oferece diversos procedimentos, como maquiagem, aplicação de cílios fio a fio, sobrancelha com técnica Brow Lamination, entre outros. Vale ressaltar que a proprietária da marca, Luana Bergo, é especialista em cabelos loiros e colorimetria.
-Além disso, o salão disponibiliza uma ampla variedade de serviços tradicionais, como colocação de mega hair com fita adesiva própria, penteados, manicure e pedicure, podologia e muito mais.</p>
-            </section>
-
         </header>
 
 
+        <section class="relative py-24 bg-[#FFF7EA] px-6 overflow-hidden" id="about-section">
+    <div class="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-[#FFB1A1] to-transparent opacity-30"></div>
+
+    <div class="max-w-4xl mx-auto flex flex-col items-center text-center">
         
+        <header class="mb-16">
+            <span class="text-[#FFB1A1] uppercase tracking-[0.4em] text-xs mb-4 block reveal-up">Nossa Essência</span>
+            <h1 class="text-5xl md:text-7xl font-serif italic text-zinc-900 reveal-up">Sobre Nós</h1>
+            <div class="w-12 h-[1px] bg-zinc-400 mx-auto mt-6"></div>
+        </header>
+
+        <p class="text-zinc-800 text-xl md:text-2xl leading-relaxed italic mb-12 font-serif reveal-up">
+            "Conheça a história e os valores que tornam o Rosa Pink Hair um refúgio de beleza único em Suzano."
+        </p>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-12 text-left text-zinc-600 leading-relaxed text-base md:text-lg">
+            
+            <div class="space-y-6 reveal-left">
+                <p>
+                    Sob o olhar atento de <strong class="text-zinc-900 italic">Luana Bergo</strong>, especialista em cabelos loiros e colorimetria, o Rosa Pink nasceu para ser mais que um salão: um espaço aconchegante focado em procedimentos de alta performance.
+                </p>
+                <p>
+                    Oferecemos uma curadoria completa de serviços, desde a precisão do <span class="text-[#FFB1A1] font-bold">Mega Hair</span> com fita adesiva própria até o design moderno de <span class="text-[#FFB1A1] font-bold">Brow Lamination</span> e extensões de cílios.
+                </p>
+            </div>
+
+            <div class="space-y-6 reveal-right">
+                <p>
+                    A inovação é nossa marca registrada. Somos pioneiros no uso da tecnologia <strong class="text-zinc-900 uppercase tracking-tighter">Micro Mist</strong>, que utiliza vibrações ultrassônicas para levar tratamentos até o CMC (Cimento da Membrana Celular).
+                </p>
+                <p>
+                    Este processo de reposição de massa capilar é finalizado com um sistema de resfriamento que sela as cutículas, garantindo que o brilho e a saúde dos fios permaneçam por muito mais tempo.
+                </p>
+            </div>
+        </div>
+
+        <div class="mt-16 reveal-up">
+            <a href="/servicos" class="group flex items-center gap-4 text-zinc-800 uppercase tracking-widest text-xs font-bold hover:text-[#FFB1A1] transition-colors">
+                Explorar Procedimentos 
+                <span class="w-10 h-[1px] bg-zinc-400 group-hover:bg-[#FFB1A1] group-hover:w-16 transition-all duration-500"></span>
+            </a>
+        </div>
+    </div>
+</section>
 
 
         <section class="py-24 bg-[#FFB1A1] px-6 overflow-hidden">
