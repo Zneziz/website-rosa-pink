@@ -8,60 +8,61 @@ const brands = [
   {
     name: "JOICO",
     products: [
-      { name: "K-PAK Reconstructor", image: "/joico-kpak.jpg", price: "Sob consulta" },
-      { name: "Moisture Recovery", image: "/joico-moisture.jpg", price: "Sob consulta" },
-      { name: "HydraSplash Hydrating", image: "/joico-hydra.jpg", price: "Sob consulta" },
-      { name: "Color Endure", image: "/joico-color.jpg", price: "Sob consulta" },
+      { name: "K-PAK ", image: "/k-park4.png", price: "Sob consulta" },
+      { name: "K-PAK Reconstructor Liquid", image: "/k-parL.png", price: "Sob consulta" },
+      
     ]
   },
   {
     name: "SENSCIENCE",
     products: [
-      { name: "Inner Restore Intensif", image: "/senscience-inner.jpg", price: "Sob consulta" },
-      { name: "Silk Moisture Shampoo", image: "/senscience-silk.jpg", price: "Sob consulta" },
-      { name: "C.P.R. Step 1 & 2", image: "/senscience-cpr.jpg", price: "Sob consulta" },
-      { name: "Smooth Conditioner", image: "/senscience-smooth.jpg", price: "Sob consulta" },
+      
+
+      { name: "C.P.R. Step 1 & 2", image: "/cpr2.png", price: "Sob consulta" },
+      { name: "C.P.R. Step 1, 2, 3 & 4", image: "/cpr4.png", price: "Sob consulta" },
+      
     ]
   },
   {
     name: "L'ORÉAL PROFESSIONNEL",
     products: [
-      { name: "Absolut Repair Molecular", image: "/loreal-absolut.jpg", price: "Sob consulta" },
-      { name: "Metal Detox Mask", image: "/loreal-metal.jpg", price: "Sob consulta" },
-      { name: "Vitamino Color Resveratrol", image: "/loreal-vitamino.jpg", price: "Sob consulta" },
-      { name: "Inforcer Strengthening", image: "/loreal-inforcer.jpg", price: "Sob consulta" },
+      { name: "Pro Longer", image: "/pro.png", price: "Sob consulta" },
+     
     ]
   },
   {
     name: "MAISON VISAGE",
     products: [
-      { name: "Linha Signature Visagismo", image: "/maison-signature.jpg", price: "Sob consulta" },
-      { name: "Sérum Elixir Precioso", image: "/maison-serum.jpg", price: "Sob consulta" },
-      { name: "Máscara de Brilho Intenso", image: "/maison-mask.jpg", price: "Sob consulta" },
+      { name: "Metal Cleaning", image: "/METAL.png", price: "Sob consulta" },
+      
     ]
   },
   {
     name: "MIRRA COSMÉTICOS",
     products: [
-      { name: "Bio-Restore System", image: "/mirra-bio.jpg", price: "Sob consulta" },
-      { name: "Elements Therapy", image: "/mirra-elements.jpg", price: "Sob consulta" },
-      { name: "BB Cream 15 em 1", image: "/mirra-bb.jpg", price: "Sob consulta" },
+      { name: "Bio-Restore System", image: "/bio.png", price: "Sob consulta" },
+      
     ]
   },
   {
     name: "ERIK KENED",
     products: [
-      { name: "Máscara de Ouro 24k", image: "/kened-ouro.jpg", price: "Sob consulta" },
-      { name: "Kit Cronograma Capilar", image: "/kened-cronograma.jpg", price: "Sob consulta" },
-      { name: "Shampoo Detox Quelante", image: "/kened-detox.jpg", price: "Sob consulta" },
+      { name: "Infusion Oil", image: "/infusion.png", price: "Sob consulta" },
+     
     ]
   },
   {
     name: "VEVO",
     products: [
-      { name: "Home Care Manutenção", image: "/vevo-home.jpg", price: "Sob consulta" },
-      { name: "Matizador Platinum Professional", image: "/vevo-matiz.jpg", price: "Sob consulta" },
-      { name: "Finalizador Selante", image: "/vevo-final.jpg", price: "Sob consulta" },
+      { name: "VEVVO Blond", image: "/blond.jpg", price: "Sob consulta" },
+      
+    ]
+  },
+  {
+    name: "MED",
+    products: [
+      { name: "Nutri Drops", image: "/nutri.png", price: "Sob consulta" },
+      
     ]
   }
 ];
@@ -132,7 +133,7 @@ const brands = [
         {brand.products.map((product) => (
           <div class="reveal-up min-w-[85%] md:min-w-[28%] snap-center bg-white/30 backdrop-blur-lg border border-white/40 p-5 shadow-sm hover:shadow-xl transition-all duration-500 group/card rounded-sm">
             <div class="overflow-hidden w-full h-[350px] mb-6 relative">
-              <img src={product.image} class="w-full h-full object-cover transition-transform duration-1000 group-hover/card:scale-110" alt={product.name}>
+              <img src={product.image} class="w-full h-full  transition-transform duration-1000 group-hover/card:scale-110" alt={product.name}>
               <div class="absolute inset-0 bg-black/0 group-hover/card:bg-black/5 transition-colors duration-500"></div>
             </div>
             
