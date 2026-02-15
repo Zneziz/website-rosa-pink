@@ -67,7 +67,7 @@ const faqs = [
         <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
     </head>
     
-    <body class="bg-[#FFF7EA] font-serif overflow-x-hidden">
+    <body class="bg-[#fffdf9] font-serif overflow-x-hidden">
 
         <header class="relative h-[30vh] w-full">
             <div class="absolute inset-0 z-0">
@@ -83,9 +83,9 @@ const faqs = [
                 <a href="/" ><img src="/logo.png" class="   w-[150px] md:w-[200px]" alt="logo"></a>
 
                 <div class="hidden md:flex gap-8 items-center text-zinc-400 text-sm uppercase tracking-widest">
-                    <a href="/sobre" class="text-white hover:text-[#FFB1A1] transition-colors">Sobre Nós</a>
-                    <a href="/produtos" class="text-white hover:text-[#FFB1A1] transition-colors">Produtos</a>
-                    <a href="/servicos" class="text-white hover:text-[#FFB1A1] transition-colors">Serviços</a>
+                    <a href="/sobre" class="text-white hover:text-[#ffc7cc] transition-colors">Sobre Nós</a>
+                    <a href="/produtos" class="text-white hover:text-[#ffc7cc] transition-colors">Produtos</a>
+                    <a href="/servicos" class="text-white hover:text-[#ffc7cc] transition-colors">Serviços</a>
                 </div>
 
                 <button id="menu-trigger" class="relative z-[110] flex flex-col gap-2 md:hidden group p-2 outline-none">
@@ -106,10 +106,10 @@ const faqs = [
 
 
         
-        <section class="py-24 bg-[#FFF7EA] px-6">
+        <section class="py-24 bg-[#fffdf9] px-6">
         <div class="max-w-4xl mx-auto">
             <div class="text-center mb-16">
-            <h2 class="text-[#FFB1A1] uppercase tracking-[0.3em] text-sm mb-4">SERVIÇOS</h2>
+            <h2 class="text-[#ffc7cc] uppercase tracking-[0.3em] text-sm mb-4">SERVIÇOS</h2>
             <h3 class="text-zinc-800 text-4xl font-serif italic">Principais Serviços</h3>
             </div>
 
@@ -128,9 +128,9 @@ const faqs = [
 
        <footer class="py-20 bg-[#FDF8F1] justify-center items-center flex flex-col gap-4 md:justify-between md:flex-row md:px-10 h-20 border-t border-zinc-600/30 text-zinc-600 text-xs uppercase tracking-widest">
             <div class="flex gap-6">
-                <a href="https://www.instagram.com/rosapinkhair551/"><p class="hover:text-[#FFB1A1] cursor-pointer transition-colors">Instagram</p></a>
-                <a href="https://www.facebook.com/people/Instituto-Rosa-Pink-Hair/100064033303194/"><p class="hover:text-[#FFB1A1] cursor-pointer transition-colors">Facebook</p></a>
-                <a href="https://wa.me/5511999673057"><p class="hover:text-[#FFB1A1] cursor-pointer transition-colors">Whatsapp</p></a>
+                <a href="https://www.instagram.com/rosapinkhair551/"><p class="hover:text-[#ffc7cc] cursor-pointer transition-colors">Instagram</p></a>
+                <a href="https://www.facebook.com/people/Instituto-Rosa-Pink-Hair/100064033303194/"><p class="hover:text-[#ffc7cc] cursor-pointer transition-colors">Facebook</p></a>
+                <a href="https://wa.me/5511999673057"><p class="hover:text-[#ffc7cc] cursor-pointer transition-colors">Whatsapp</p></a>
             </div>
             <p class="pr-15 pt-5 md:pt-0 md:pr-20">© 2026. SITE DESIGN BY <a href="https://www.linkedin.com/in/nicollas-bergo-calheiros-de-melo-108289266/" class="font-bold underline" target="_blank">Nicollas</a></p>
         </footer>
@@ -301,8 +301,8 @@ const faqs = [
 
             menuTl.to(overlay, { translateY: 0, opacity: 1, pointerEvents: "auto" })
                   .to(links, { opacity: 1, y: 0, stagger: 0.1, duration: 0.6 }, "-=0.4")
-                  .to(line1, { rotation: 45, y: 5, backgroundColor: "#FFB1A1", zIndex: 100, duration: 0.3 }, 0)
-                  .to(line2, { rotation: -45, y: -5, backgroundColor: "#FFB1A1", zIndex: 100, duration: 0.3 }, 0);
+                  .to(line1, { rotation: 45, y: 5, backgroundColor: "#ffc7cc", zIndex: 100, duration: 0.3 }, 0)
+                  .to(line2, { rotation: -45, y: -5, backgroundColor: "#ffc7cc", zIndex: 100, duration: 0.3 }, 0);
 
             trigger?.addEventListener('click', () => {
                 if (!isMenuOpen) { menuTl.play(); } else { menuTl.reverse(); }

@@ -52,7 +52,7 @@ const brands = [
     ]
   },
   {
-    name: "VEVO",
+    name: "VEVVO",
     products: [
       { name: "VEVVO Blond", image: "/blond.jpg", price: "Sob consulta" },
       
@@ -76,7 +76,7 @@ const brands = [
         <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
     </head>
     
-    <body class="bg-[#FFF7EA] font-serif overflow-x-hidden">
+    <body class="bg-[#fffdf9] font-serif overflow-x-hidden">
 
         <header class="relative h-[30vh] w-full">
             <div class="absolute inset-0 z-0">
@@ -92,9 +92,9 @@ const brands = [
                 <a href="/" ><img src="/logo.png" class="   w-[150px] md:w-[200px]" alt="logo"></a>
 
                 <div class="hidden md:flex gap-8 items-center text-zinc-400 text-sm uppercase tracking-widest">
-                    <a href="/sobre" class="text-white hover:text-[#FFB1A1] transition-colors">Sobre Nós</a>
-                    <a href="/produtos" class="text-white hover:text-[#FFB1A1] transition-colors">Produtos</a>
-                    <a href="/servicos" class="text-white hover:text-[#FFB1A1] transition-colors">Serviços</a>
+                    <a href="/sobre" class="text-white hover:text-[#ffc7cc] transition-colors">Sobre Nós</a>
+                    <a href="/produtos" class="text-white hover:text-[#ffc7cc] transition-colors">Produtos</a>
+                    <a href="/servicos" class="text-white hover:text-[#ffc7cc] transition-colors">Serviços</a>
                 </div>
 
                 <button id="menu-trigger" class="relative z-[110] flex flex-col gap-2 md:hidden group p-2 outline-none">
@@ -115,7 +115,7 @@ const brands = [
 
         
         {brands.map((brand, brandIndex) => (
-  <section class="bg-[#F2D7C2] py-20 overflow-hidden border-b border-zinc-600/10 last:border-0 carousel-container">
+  <section class="bg-[#fff2e8] py-20 overflow-hidden border-b border-zinc-600/10 last:border-0 carousel-container">
     <div class="text-center border-t border-b border-zinc-600/20 py-6 mb-12 mx-6">
       <span class="text-zinc-700 italic uppercase text-3xl tracking-[0.3em] font-serif">{brand.name}</span>
     </div>
@@ -139,8 +139,8 @@ const brands = [
             
             <div class="text-center px-2">
               <h2 class="text-zinc-800 font-serif italic text-2xl mb-2">{product.name}</h2>
-              <div class="w-10 h-[1px] bg-[#FFB1A1] mx-auto mb-4 group-hover/card:w-20 transition-all duration-500"></div>
-              <a href="https://wa.me/5511999673057" target="_blank" class="text-xs uppercase tracking-[0.2em] text-zinc-500 hover:text-[#FFB1A1] transition-colors font-bold">
+              <div class="w-10 h-[1px] bg-[#ffc7cc] mx-auto mb-4 group-hover/card:w-20 transition-all duration-500"></div>
+              <a href="https://wa.me/5511999673057" target="_blank" class="text-xs uppercase tracking-[0.2em] text-zinc-500 hover:text-[#ffc7cc] transition-colors font-bold">
                 {product.price} — Comprar
               </a>
             </div>
@@ -159,9 +159,9 @@ const brands = [
 
         <footer class="py-20 bg-[#FDF8F1] justify-center items-center flex flex-col gap-4 md:justify-between md:flex-row md:px-10 h-20 border-t border-zinc-600/30 text-zinc-600 text-xs uppercase tracking-widest">
             <div class="flex gap-6">
-                <a href="https://www.instagram.com/rosapinkhair551/"><p class="hover:text-[#FFB1A1] cursor-pointer transition-colors">Instagram</p></a>
-                <a href="https://www.facebook.com/people/Instituto-Rosa-Pink-Hair/100064033303194/"><p class="hover:text-[#FFB1A1] cursor-pointer transition-colors">Facebook</p></a>
-                <a href="https://wa.me/5511999673057"><p class="hover:text-[#FFB1A1] cursor-pointer transition-colors">Whatsapp</p></a>
+                <a href="https://www.instagram.com/rosapinkhair551/"><p class="hover:text-[#ffc7cc] cursor-pointer transition-colors">Instagram</p></a>
+                <a href="https://www.facebook.com/people/Instituto-Rosa-Pink-Hair/100064033303194/"><p class="hover:text-[#ffc7cc] cursor-pointer transition-colors">Facebook</p></a>
+                <a href="https://wa.me/5511999673057"><p class="hover:text-[#ffc7cc] cursor-pointer transition-colors">Whatsapp</p></a>
             </div>
             <p class="pr-15 pt-5 md:pt-0 md:pr-20">© 2026. SITE DESIGN BY <a href="https://www.linkedin.com/in/nicollas-bergo-calheiros-de-melo-108289266/" class="font-bold underline" target="_blank">Nicollas</a></p>
         </footer>
@@ -250,8 +250,8 @@ const brands = [
 
             menuTl.to(overlay, { translateY: 0, opacity: 1, pointerEvents: "auto" })
                   .to(links, { opacity: 1, y: 0, stagger: 0.1, duration: 0.6 }, "-=0.4")
-                  .to(line1, { rotation: 45, y: 5, backgroundColor: "#FFB1A1", zIndex: 100, duration: 0.3 }, 0)
-                  .to(line2, { rotation: -45, y: -5, backgroundColor: "#FFB1A1", zIndex: 100, duration: 0.3 }, 0);
+                  .to(line1, { rotation: 45, y: 5, backgroundColor: "#ffc7cc", zIndex: 100, duration: 0.3 }, 0)
+                  .to(line2, { rotation: -45, y: -5, backgroundColor: "#ffc7cc", zIndex: 100, duration: 0.3 }, 0);
 
             trigger?.addEventListener('click', () => {
                 if (!isMenuOpen) { menuTl.play(); } else { menuTl.reverse(); }
